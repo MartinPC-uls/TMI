@@ -1,0 +1,13 @@
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\TMI Project.exe.config
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\TMI Project.exe
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\TMI Project.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.csproj.AssemblyReference.cache
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI_Project.Properties.Resources.resources
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.csproj.GenerateResource.cache
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.csproj.CoreCompileInputs.cache
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.exe
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\System.ValueTuple.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\System.ValueTuple.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.csproj.CopyComplete
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI_Project.IntefazGrabacion.resources
