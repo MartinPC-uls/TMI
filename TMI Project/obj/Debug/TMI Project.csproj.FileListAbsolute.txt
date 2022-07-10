@@ -11,3 +11,4 @@ C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\System.ValueTuple.
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Debug\System.ValueTuple.xml
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.csproj.CopyComplete
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI_Project.IntefazGrabacion.resources
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Debug\TMI Project.csproj.SuggestedBindingRedirects.cache

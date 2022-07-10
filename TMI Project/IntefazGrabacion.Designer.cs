@@ -86,10 +86,10 @@ namespace TMI_Project
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "-1 tono",
-            "-2 tonos",
-            "-3 tonos",
-            "-4 tonos"});
+            "-1 semitono (1/2 tono)",
+            "-2 semitonos (1 tono)",
+            "-3 semitonos (1 y 1/2 tono)",
+            "-4 semitonos (2 tonos)"});
             this.comboBox2.Location = new System.Drawing.Point(538, 238);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);

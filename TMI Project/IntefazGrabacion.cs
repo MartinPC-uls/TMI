@@ -19,17 +19,17 @@ namespace TMI_Project
         public IntefazGrabacion()
         {
             InitializeComponent();
-            graphicAudio();
+            //graphicAudio();
             btnStop.Enabled = false;
             audio = new RecordAudio();
         }
 
         static int Fs;
-        static readonly int FrameSize = 16384;
+        static readonly int FrameSize = 16384; // 2^14
 
         public void graphicAudio()
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "acordes4.wav";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "pruebita.wav";
 
             Audio audio = new Audio(path);
             _audio = audio;
@@ -136,8 +136,8 @@ namespace TMI_Project
             }
 
             Array.Sort(repeticiones);
-            Console.WriteLine("-----------------x-xxxxxxxxxx-------------x------------------");
-            Console.WriteLine("Notas identificadas: " + cantidad);
+            //Console.WriteLine("-----------------x-xxxxxxxxxx-------------x------------------");
+            //Console.WriteLine("Notas identificadas: " + cantidad);
             int nota = 0;
             int[] ordenNotas = new int[12];
             for (int i = 0; i < repeticiones.Length; i++)
@@ -209,13 +209,20 @@ namespace TMI_Project
                 _ordenNotas[i] = ordenNotas[i];
             }
 
-            for (int i = 0; i < _ordenNotas.Length; i++)
+            /*for (int i = 0; i < _ordenNotas.Length; i++)
             {
                 Console.WriteLine(nm.getNota(_ordenNotas[i]));
-            }
+            }*/
 
-            Console.WriteLine("Nota dominante: " + nm.getNota(nota));
-            int nextNota = getFifth(nota);
+            //Console.WriteLine("Nota dominante: " + nm.getNota(nota));
+            string notaDominante = nm.getNota(nota);
+
+            string[] musicalScale = calculateScale(notaDominante, nm);
+            ScaleGenerator sg = new ScaleGenerator(musicalScale);
+
+            sg.printScaleImage(musicalScale, pictureBox1, "Guitarra", nombreEscala);
+
+            /*int nextNota = getFifth(nota);
             for (int i = 0; i < ordenNotas.Length; i++)
             {
                 if (nextNota == ordenNotas[i] && nm.get(nm.getNota(ordenNotas[i])) < average)
@@ -246,7 +253,371 @@ namespace TMI_Project
                     return;
                 }
             }
-            Console.WriteLine("Escala musical no encontrada.");
+            Console.WriteLine("Escala musical no encontrada.");*/
+        }
+
+        public string[] calculateScale(string notaDominante, NotasMusicales nm)
+        {
+            EscalasMusicales em = new EscalasMusicales();
+            List<string[]> escala = null;
+            int[] pesos = new int[7];
+            int peso_major = 0;
+            int peso_minor = 0;
+            int peso_dorian = 0;
+            int peso_phrygian = 0;
+            int peso_lydian = 0;
+            int peso_mixolydian = 0;
+            int peso_locrian = 0;
+
+            int pesoNota;
+
+            int numNotaFundamental = 0;
+            switch (notaDominante)
+            {
+                case "C":
+                    numNotaFundamental = 1;
+                    escala = em.Cescalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.CMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.CMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.CDorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.CPhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.CLydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.CMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.CLocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "C#":
+                    numNotaFundamental = 2;
+                    escala = em.C_escalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.C_Major)
+                                peso_major += pesoNota;
+                            else if (_escala == em.C_Minor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.C_Dorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.C_Phrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.C_Lydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.C_Mixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.C_Locrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "D":
+                    numNotaFundamental = 3;
+                    escala = em.Descalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.DMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.DMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.DDorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.DPhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.DLydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.DMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.DLocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "D#":
+                    numNotaFundamental = 4;
+                    escala = em.D_escalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.D_Major)
+                                peso_major += pesoNota;
+                            else if (_escala == em.D_Minor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.D_Dorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.D_Phrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.D_Lydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.D_Mixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.D_Locrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "E":
+                    numNotaFundamental = 5;
+                    escala = em.Eescalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.EMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.EMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.EDorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.EPhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.ELydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.EMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.ELocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "F":
+                    numNotaFundamental = 6;
+                    escala = em.Fescalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.FMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.FMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.FDorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.FPhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.FLydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.FMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.FLocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "F#":
+                    numNotaFundamental = 7;
+                    escala = em.F_escalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.F_Major)
+                                peso_major += pesoNota;
+                            else if (_escala == em.F_Minor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.F_Dorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.F_Phrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.F_Lydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.F_Mixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.F_Locrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "G":
+                    numNotaFundamental = 8;
+                    escala = em.Gescalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.GMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.GMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.GDorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.GPhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.GLydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.GMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.GLocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "G#":
+                    numNotaFundamental = 9;
+                    escala = em.G_escalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.G_Major)
+                                peso_major += pesoNota;
+                            else if (_escala == em.G_Minor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.G_Dorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.G_Phrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.G_Lydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.G_Mixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.G_Locrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "A":
+                    numNotaFundamental = 10;
+                    escala = em.Aescalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.AMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.AMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.ADorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.APhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.ALydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.AMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.ALocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "A#":
+                    numNotaFundamental = 11;
+                    escala = em.A_escalas;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.A_Major)
+                                peso_major += pesoNota;
+                            else if (_escala == em.A_Minor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.A_Dorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.A_Phrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.A_Lydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.A_Mixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.A_Locrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+                case "B":
+                    numNotaFundamental = 12;
+                    foreach (string[] _escala in escala)
+                    {
+                        for (int i = 0; i < _escala.Length; i++)
+                        {
+                            pesoNota = nm.get(_escala[i]);
+                            if (_escala == em.BMajor)
+                                peso_major += pesoNota;
+                            else if (_escala == em.BMinor)
+                                peso_minor += pesoNota;
+                            else if (_escala == em.BDorian)
+                                peso_dorian += pesoNota;
+                            else if (_escala == em.BPhrygian)
+                                peso_phrygian += pesoNota;
+                            else if (_escala == em.BLydian)
+                                peso_lydian += pesoNota;
+                            else if (_escala == em.BMixolydian)
+                                peso_mixolydian += pesoNota;
+                            else if (_escala == em.BLocrian)
+                                peso_locrian += pesoNota;
+                        }
+                    }
+                    break;
+            }
+            pesos[0] = peso_major;
+            pesos[1] = peso_minor;
+            pesos[2] = peso_dorian;
+            pesos[3] = peso_phrygian;
+            pesos[4] = peso_lydian;
+            pesos[5] = peso_mixolydian;
+            pesos[6] = peso_locrian;
+
+            int aux = pesos[0];
+            int point = 0;
+            for (int i = 1; i < pesos.Length; i++)
+            {
+                if (pesos[i] > aux)
+                {
+                    aux = pesos[i];
+                    point = i;
+                }
+            }
+
+            int fundamental = nm.getNota(notaDominante);
+            int ajusteAfinacion = comboBox2.SelectedIndex+1;
+            fundamental = (fundamental + ajusteAfinacion) <= 12 ? (fundamental+ajusteAfinacion) : (fundamental+ajusteAfinacion)-12;
+
+            notaDominante = nm.getNota(fundamental);
+
+            string modo = null;
+            if (point == 0)
+                modo = "Major";
+            else if (point == 1)
+                modo = "Minor";
+            else if (point == 2)
+                modo = "Dorian";
+            else if (point == 3)
+                modo = "Phrygian";
+            else if (point == 4)
+                modo = "Lydian";
+            else if (point == 5)
+                modo = "Mixolydian";
+            else if (point == 6)
+                modo = "Locrian";
+
+            return em.getEscalaMusical(notaDominante, modo);
+
+
         }
 
         public int getFifth(int nota)
