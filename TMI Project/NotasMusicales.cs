@@ -26,7 +26,7 @@ namespace TMI_Project
             this.A_ = A_;
             this.B = B;
         }
-        public int cantidadNotasValidas(int average)
+        public int GetCantidadNotasValidas(int average)
         {
             int cantidad = 0;
             if (C > average)
@@ -56,7 +56,7 @@ namespace TMI_Project
 
             return cantidad;
         }
-        public bool notaExiste(string nota, int average = 0)
+        public bool NotaExiste(string nota, int average = 0)
         {
             switch (nota)
             {
@@ -112,7 +112,7 @@ namespace TMI_Project
                     return false;
             }
         }
-        public string getNota(int nota)
+        public string GetNota(int nota)
         {
             switch (nota)
             {
@@ -131,14 +131,14 @@ namespace TMI_Project
                 default: return null;
             }
         }
-        public int getNotaDominante()
+        public int GetNotaDominante()
         {
             int note = 0;
             int aux = 0;
             int _aux = 0;
             for (int i = 1; i <= 12; i++)
             {
-                note = get(i);
+                note = Get(i);
                 if (note > aux)
                 {
                     aux = note;
@@ -147,7 +147,7 @@ namespace TMI_Project
             }
             return _aux;
         }
-        public int getNota(string note)
+        public int GetNota(string note)
         {
             switch (note)
             {
@@ -180,7 +180,7 @@ namespace TMI_Project
                     return 0;
             }
         }
-        public int get(int note)
+        public int Get(int note)
         {
             switch (note)
             {
@@ -213,7 +213,7 @@ namespace TMI_Project
                     return 0;
             }
             }
-        public int get(string note)
+        public int Get(string note)
         {
             switch (note)
             {
@@ -247,7 +247,7 @@ namespace TMI_Project
             }
         }
         // ejemplo: add('C', 3); añade 3 repeticiones para la nota C (Do)
-        public void add(string note, int times = 1)
+        public void Add(string note, int times = 1)
         {
             switch (note)
             {
@@ -293,7 +293,7 @@ namespace TMI_Project
             }
         }
 
-        public void add(double freq, int t = 1)
+        public void Add(double freq, int t = 1)
         {
             switch (freq)
             {
@@ -408,7 +408,7 @@ namespace TMI_Project
             }
         }
 
-        public int getNota(double freq)
+        public int GetNota(double freq)
         {
             switch (freq)
             {
@@ -522,152 +522,8 @@ namespace TMI_Project
                 case 3951.34:
                     return 12;
                 default:
-                    //Console.WriteLine("<freq no identificada>");
                     return 0;
             }
         }
-
-        /*public void add(double freq, int times = 1)
-        {
-            //freq *= 2;
-            //freq = Math.Round(freq/2, 2, MidpointRounding.AwayFromZero);
-            //Console.WriteLine("Reading: " + freq);
-            switch (freq)
-            {
-                /*case 32.38:
-                    C += times;
-                    C_ += times;
-                    D += times;
-                    break;
-                case 43.17:
-                    D_ += times;
-                    E += times;
-                    F += times;
-                    F_ += times;
-                    break;
-                case 53.96:
-                    G += times;
-                    G_ += times;
-                    A += times;
-                    A_ += times;
-                    break;
-                case 64.76:
-                    B += times;
-                    C += times;
-                    C_ += times;
-                    break;
-                case 75.55:
-                    D += times;
-                    D_ += times;
-                    break;
-                case 86.34:
-                    E += times;
-                    F += times;
-                    break;
-                case 97.14:
-                    F_ += times;
-                    G += times;
-                    break;
-                case 107.93:
-                    G_ += times;
-                    A += times;
-                    break;
-                case 118.72:
-                    A_ += times;
-                    B += times;
-                    break;
-                case 151.1:
-                    D += times;
-                    D_ += times;
-                    break;
-                    // otro nivel
-
-                case 129.52:
-                case 259.03:
-                case 528.85:
-                case 1046.92:
-                case 2093.83:
-                    C += times;
-                    break;
-                case 140.31:
-                case 280.62:
-                case 550.44:
-                case 1111.67:
-                case 2223.35:
-                    C_ += times;
-                    break;
-                case 291.41:
-                case 593.61:
-                case 1176.43:
-                case 2352.86:
-                    D += times;
-                    break;
-                case 313:
-                case 625.99:
-                case 1251.98:
-                case 2493.17:
-                    D_ += times;
-                    break;
-                case 161.89:
-                case 334.58:
-                case 658.37:
-                case 1316.74:
-                case 2644.27:
-                    E += times;
-                    break;
-                case 172.69:
-                case 345.37:
-                case 701.54:
-                case 1403.08:
-                case 2795.37:
-                    F += times;
-                    break;
-                case 183.48:
-                case 366.96:
-                case 744.71:
-                case 1478.63:
-                case 2968.06:
-                    F_ += times;
-                    break;
-                case 194.27:
-                case 388.55:
-                case 787.89:
-                case 1575.77:
-                case 3140.75:
-                    G += times;
-                    break;
-                case 205.07:
-                case 420.93:
-                case 831.06:
-                case 1662.11:
-                case 3335.02:
-                    G_ += times;
-                    break;
-                case 215.86:
-                case 442.51:
-                case 885.02:
-                case 1759.25:
-                case 3529.3:
-                    A += times;
-                    break;
-                case 237.44:
-                case 464.1:
-                case 938.99:
-                case 1867.18:
-                case 3734.36:
-                    A_ += times;
-                    break;
-                case 248.24:
-                case 496.48:
-                case 992.95:
-                case 1975.11:
-                case 3961.01:
-                    B += times;
-                    break;
-
-                default:
-                    return;
-            }
-        }*/
     }
 }

@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using TMI_Project.Sound;
+using TMI_Project.Grabacion;
 
 namespace TMI_Project
 {
@@ -33,38 +31,36 @@ namespace TMI_Project
         public Complex[] Frame { get; set; }
         public int[] Armonico { get; set; }
         public Audio audio { get; set; }
-        public double average { get; set; }
+        public double Promedio { get; set; }
 
-        private int NumArmonicos;
-
-        public Armonicos(Complex[] Frame, double FrecuenciaDominante, Audio audio, double average)
+        public Armonicos(Complex[] frame, double frecuenciaDominante, Audio audio, double average)
         {
             this.audio = audio;
-            this.Frame = Frame;
-            this.FrecuenciaDominante = FrecuenciaDominante;
-            this.average = average;
+            Frame = frame;
+            FrecuenciaDominante = frecuenciaDominante;
+            Promedio = average;
             Armonico = GetArmonicos();
         }
 
         private int[] GetArmonicos()
         {
-            Frequencies[] frqs = new Frequencies[Frame.Length / 2];
+            Frecuencias[] frqs = new Frecuencias[Frame.Length / 2];
             for (int i = 0; i < Frame.Length / 2; i++)
             {
-                frqs[i] = new Frequencies { freqbin = i, amplitude = Frame[i].Magnitude };
+                frqs[i] = new Frecuencias { Freqbin = i, Amplitude = Frame[i].Magnitude };
             }
-            var _f = frqs.OrderByDescending(amp => amp.amplitude);
+            var _f = frqs.OrderByDescending(amp => amp.Amplitude);
             int j = 0;
             NotasMusicales nm = new NotasMusicales();
             List<int> notas = new List<int>();
-            foreach (Frequencies f in _f)
+            foreach (Frecuencias f in _f)
             {
-                if (f.amplitude >= average && j <= 20) // TODO cambiar este condicional para sacar el número de armónicos
+                if (f.Amplitude >= Promedio && j <= 20) // TODO cambiar este condicional para sacar el número de armónicos
                 {
-                    double freq = Math.Round((double)f.freqbin * audio.SampleRate / Frame.Length, 2, MidpointRounding.AwayFromZero);
-                    string nota = LookFor(FrecuenciaDominante, freq);
+                    double freq = Math.Round((double)f.Freqbin * audio.SampleRate / Frame.Length, 2, MidpointRounding.AwayFromZero);
+                    string nota = BuscarPor(FrecuenciaDominante, freq);
                     //Console.WriteLine("Agregando: " + nota);
-                    notas.Add(nm.getNota(nota));
+                    notas.Add(nm.GetNota(nota));
                 }
 
                 j++;
@@ -72,7 +68,7 @@ namespace TMI_Project
             return notas.ToArray();
         }
 
-        private string LookFor(double freq, double nextFreq)
+        private string BuscarPor(double freq, double nextFreq)
         {
             /*
              * 1: C     7:  F#
@@ -83,8 +79,8 @@ namespace TMI_Project
              * 6: F     12: B
              */
             NotasMusicales nm = new NotasMusicales();
-            int nota = nm.getNota(freq);
-            int nextNota = nm.getNota(nextFreq);
+            int nota = nm.GetNota(freq);
+            int nextNota = nm.GetNota(nextFreq);
             switch (nota)
             {
                 case 1: // C

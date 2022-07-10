@@ -57,21 +57,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analisis\AnalizadorFrecuencias.cs" />
     <Compile Include="EscalasMusicales.cs" />
-    <Compile Include="Sound\Audio.cs" />
+    <Compile Include="Grabacion\Audio.cs" />
     <Compile Include="Armonicos.cs" />
-    <Compile Include="Sound\RecordAudio.cs" />
+    <Compile Include="Grabacion\RecordAudio.cs" />
     <Compile Include="IntefazGrabacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IntefazGrabacion.Designer.cs">
       <DependentUpon>IntefazGrabacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frequencies.cs" />
+    <Compile Include="Frecuencias.cs" />
     <Compile Include="NotasMusicales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScaleGenerator.cs" />
+    <Compile Include="GeneradorEscala.cs" />
     <EmbeddedResource Include="IntefazGrabacion.resx">
       <DependentUpon>IntefazGrabacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,5 +99,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Numerics;
 
-namespace TMI_Project.Sound
+namespace TMI_Project.Grabacion
 {
     public class Audio
     {
@@ -16,17 +16,15 @@ namespace TMI_Project.Sound
         public float[] RealData { get; set; }
         public string NombreArchivoTemporal { get; set; }
 
-        private string nombreArchivoTemporal;
-
         public Audio(string nombreArchivoTemporal)
         {
-            this.nombreArchivoTemporal = nombreArchivoTemporal;
+            this.NombreArchivoTemporal = nombreArchivoTemporal;
             ObtenerElementosAudio();
         }
 
         private void ObtenerElementosAudio()
         {
-            Data = File.ReadAllBytes(nombreArchivoTemporal);
+            Data = File.ReadAllBytes(NombreArchivoTemporal);
             NumChannels = BitConverter.ToInt16(Data, 22);
             SampleRate = BitConverter.ToInt32(Data, 24);
             ByteRate = BitConverter.ToInt32(Data, 28);
@@ -49,7 +47,6 @@ namespace TMI_Project.Sound
                     RealData[j] = BitConverter.ToInt64(Data, i) / 32768f;
                 }
             }
-            //Console.WriteLine("SampleRate: " + SampleRate);
         }
     }
 }

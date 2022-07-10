@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TMI_Project
 {
@@ -305,7 +302,7 @@ namespace TMI_Project
             Bescalas.Add(BLocrian);
         }
 
-        public string[] getEscalaMusical(string tonica, string modo)
+        public string[] GetEscalaMusical(string tonica, string modo)
         {
             switch (tonica)
             {
