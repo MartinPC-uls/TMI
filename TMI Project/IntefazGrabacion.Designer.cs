@@ -37,12 +37,13 @@ namespace TMI_Project
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nombreEscala = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(12, 226);
+            this.btnStart.Location = new System.Drawing.Point(12, 212);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 2;
@@ -52,7 +53,7 @@ namespace TMI_Project
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(93, 226);
+            this.btnStop.Location = new System.Drawing.Point(93, 212);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 3;
@@ -121,11 +122,22 @@ namespace TMI_Project
             this.nombreEscala.Size = new System.Drawing.Size(0, 13);
             this.nombreEscala.TabIndex = 9;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(12, 241);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // IntefazGrabacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 271);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.nombreEscala);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -136,6 +148,7 @@ namespace TMI_Project
             this.Controls.Add(this.btnStart);
             this.Name = "IntefazGrabacion";
             this.Text = "MGEM - Martín Pizarro";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntefazGrabacion_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,6 +164,7 @@ namespace TMI_Project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label nombreEscala;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
 

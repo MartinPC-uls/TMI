@@ -27,7 +27,7 @@ namespace TMI_Project
         public readonly string[] GMajor = { G, A, B, C, D, E, F_ };
         public readonly string[] G_Major = { G_, A_, C, C_, D_, F, G };
         public readonly string[] AMajor = { A, B, C_, D, E, F_, G_ };
-        public readonly string[] A_Major = { A, B, C_, D, E, F_, G_ };
+        public readonly string[] A_Major = { A_, C, D, D_, F, G, A };
         public readonly string[] BMajor = { B, C_, D_, E, F_, G_, A_ };
         public readonly string[] CMinor = { C, D, D_, F, G, G_, A_ };
         public readonly string[] C_Minor = { C_, D_, E, F_, G_, A, B };

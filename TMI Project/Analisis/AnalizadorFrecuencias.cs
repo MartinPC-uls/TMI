@@ -10,13 +10,15 @@ namespace TMI_Project.Analisis
     public class AnalizadorFrecuencias
     {
 
-        private Audio _audio;
+        private readonly Audio _audio;
         private readonly int Fs;
         private readonly int FrameSize = 16384; // 2^14
+        private readonly string Instrumento;
 
-        public AnalizadorFrecuencias(ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox)
+        public AnalizadorFrecuencias(ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox, ref ComboBox instrumento)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + "temp.wav";
+            Instrumento = instrumento.Text;
 
             Audio audio = new Audio(path);
             _audio = audio;
@@ -199,7 +201,7 @@ namespace TMI_Project.Analisis
             string[] musicalScale = CalcularEscala(notaDominante, nm, ref comboBox);
             GeneradorEscala sg = new GeneradorEscala();
 
-            sg.MostrarEscalaMusical(musicalScale, pictureBox, "Guitarra", nombreEscalaMusical);
+            sg.MostrarEscalaMusical(musicalScale, pictureBox, Instrumento, nombreEscalaMusical);
         }
         public string[] CalcularEscala(string notaDominante, NotasMusicales nm, ref ComboBox comboBox)
         {
