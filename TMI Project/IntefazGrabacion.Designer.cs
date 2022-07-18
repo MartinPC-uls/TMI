@@ -29,6 +29,8 @@ namespace TMI_Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IntefazGrabacion));
             this.btnStart = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,6 +40,8 @@ namespace TMI_Project
             this.label2 = new System.Windows.Forms.Label();
             this.nombreEscala = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.lblCountdown = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,9 +91,9 @@ namespace TMI_Project
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "-1 semitono (1/2 tono)",
+            "-1 semitono",
             "-2 semitonos (1 tono)",
-            "-3 semitonos (1 y 1/2 tono)",
+            "-3 semitonos",
             "-4 semitonos (2 tonos)"});
             this.comboBox2.Location = new System.Drawing.Point(538, 238);
             this.comboBox2.Name = "comboBox2";
@@ -126,17 +130,32 @@ namespace TMI_Project
             // 
             this.btnGuardar.Location = new System.Drawing.Point(12, 241);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(156, 23);
             this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // lblCountdown
+            // 
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.Location = new System.Drawing.Point(666, 27);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(19, 13);
+            this.lblCountdown.TabIndex = 11;
+            this.lblCountdown.Text = "30";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // IntefazGrabacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 271);
+            this.ClientSize = new System.Drawing.Size(700, 271);
+            this.Controls.Add(this.lblCountdown);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.nombreEscala);
             this.Controls.Add(this.label2);
@@ -146,8 +165,12 @@ namespace TMI_Project
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "IntefazGrabacion";
-            this.Text = "MGEM - Martín Pizarro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MGE";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.IntefazGrabacion_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -165,6 +188,8 @@ namespace TMI_Project
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label nombreEscala;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Label lblCountdown;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

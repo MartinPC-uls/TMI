@@ -33,6 +33,13 @@ namespace TMI_Project
         public Audio audio { get; set; }
         public double Promedio { get; set; }
 
+        /// <summary>
+        /// Constructor de la clase Armonicos
+        /// </summary>
+        /// <param name="frame"></param>
+        /// <param name="frecuenciaDominante"></param>
+        /// <param name="audio"></param>
+        /// <param name="average"></param>
         public Armonicos(Complex[] frame, double frecuenciaDominante, Audio audio, double average)
         {
             this.audio = audio;
@@ -42,6 +49,10 @@ namespace TMI_Project
             Armonico = GetArmonicos();
         }
 
+        /// <summary>
+        /// Obtiene los armonicos
+        /// </summary>
+        /// <returns></returns>
         private int[] GetArmonicos()
         {
             Frecuencias[] frqs = new Frecuencias[Frame.Length / 2];
@@ -67,7 +78,12 @@ namespace TMI_Project
             }
             return notas.ToArray();
         }
-
+        /// <summary>
+        /// Busca la nota por la frecuencia
+        /// </summary>
+        /// <param name="freq"></param>
+        /// <param name="nextFreq"></param>
+        /// <returns></returns>
         private string BuscarPor(double freq, double nextFreq)
         {
             /*

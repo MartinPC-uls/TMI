@@ -9,15 +9,23 @@ namespace TMI_Project.Analisis
 {
     public class AnalizadorFrecuencias
     {
-
         private readonly Audio _audio;
         private readonly int Fs;
         private readonly int FrameSize = 16384; // 2^14
         private readonly string Instrumento;
-
+        
+        /// <summary>
+        /// Constructor de la clase AnalizadorFrecuencias
+        /// </summary>
+        /// <param name="pictureBox"></param>
+        /// <param name="nombreEscalaLabel"></param>
+        /// <param name="comboBox"></param>
+        /// <param name="instrumento"></param>
         public AnalizadorFrecuencias(ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox, ref ComboBox instrumento)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "temp.wav";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "temp.wav"; //<-- MAIN PATH
+            //string path = AppDomain.CurrentDomain.BaseDirectory + "/Notas/B7.wav";
+            //string path = AppDomain.CurrentDomain.BaseDirectory + "notas3.wav";
             Instrumento = instrumento.Text;
 
             Audio audio = new Audio(path);
@@ -31,7 +39,14 @@ namespace TMI_Project.Analisis
 
             DeterminarEscala(samples, FrameSize, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
         }
-
+        /// <summary>
+        /// Determina la escala musical y la muestra en un PictureBox.
+        /// </summary>
+        /// <param name="s_samples"></param>
+        /// <param name="frameSize"></param>
+        /// <param name="pictureBox"></param>
+        /// <param name="nombreEscalaLabel"></param>
+        /// <param name="comboBox"></param>
         public void DeterminarEscala(Complex[] s_samples, int frameSize, ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox)
         {
             NotasMusicales nm = new NotasMusicales();
@@ -55,22 +70,22 @@ namespace TMI_Project.Analisis
                     Console.WriteLine("A: " + nm.Get("A"));
                     Console.WriteLine("A#: " + nm.Get("A#"));
                     Console.WriteLine("B: " + nm.Get("B"));
-                    getMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
+                    GetMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
                     return;
                 }
                 Complex[] frame = GetFrame(s_samples, i, i + frameSize);
                 HannWindow(ref frame);
                 Complex[] fft_values = FFT(frame);
                 fft_frames.Add(fft_values);
-                double f = GetPicks(fft_values);
-                nm.Add(f, 2);
+                double f = GetPick(fft_values);
+                nm.Add(f, 20); // antes 2
                 double avg = Queryable.Average(fft_values.Select(m => m.Magnitude).ToList().AsQueryable());
 
                 Armonicos armonicos = new Armonicos(fft_values, f, _audio, avg);
                 int[] arm = armonicos.Armonico;
                 for (int j = 0; j < arm.Length; j++)
                 {
-                    nm.Add(nm.GetNota(arm[j]), 20);
+                    nm.Add(nm.GetNota(arm[j]), 10); // antes 20; 10
                 }
                 nFrame++;
                 i -= frameSize / 2;
@@ -88,9 +103,16 @@ namespace TMI_Project.Analisis
             Console.WriteLine("A: " + nm.Get("A"));
             Console.WriteLine("A#: " + nm.Get("A#"));
             Console.WriteLine("B: " + nm.Get("B"));
-            getMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
+            GetMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
         }
-        public void getMusicalScale(NotasMusicales nm, ref PictureBox pictureBox, ref Label nombreEscalaMusical, ref ComboBox comboBox)
+        /// <summary>
+        /// Obtiene la escala musical basado en las notas musicales encontradas.
+        /// </summary>
+        /// <param name="nm"></param>
+        /// <param name="pictureBox"></param>
+        /// <param name="nombreEscalaMusical"></param>
+        /// <param name="comboBox"></param>
+        public void GetMusicalScale(NotasMusicales nm, ref PictureBox pictureBox, ref Label nombreEscalaMusical, ref ComboBox comboBox)
         {
             int[] repeticiones = new int[12];
             repeticiones[0] = nm.Get("C");
@@ -203,10 +225,17 @@ namespace TMI_Project.Analisis
 
             sg.MostrarEscalaMusical(musicalScale, pictureBox, Instrumento, nombreEscalaMusical);
         }
+        /// <summary>
+        /// Calcula la escala musical para determinar cuál es la más adecuada.
+        /// </summary>
+        /// <param name="notaDominante"></param>
+        /// <param name="nm"></param>
+        /// <param name="comboBox"></param>
+        /// <returns></returns>
         public string[] CalcularEscala(string notaDominante, NotasMusicales nm, ref ComboBox comboBox)
         {
             EscalasMusicales em = new EscalasMusicales();
-            List<string[]> escala = null;
+            List<string[]> escala;
             int[] pesos = new int[7];
             int peso_major = 0;
             int peso_minor = 0;
@@ -215,6 +244,15 @@ namespace TMI_Project.Analisis
             int peso_lydian = 0;
             int peso_mixolydian = 0;
             int peso_locrian = 0;
+
+            int sum = 0;
+            for (int i = 1; i <= 12; i++)
+            {
+                sum += nm.Get(i);
+            }
+            sum /= 12;
+            if (sum <= 20)
+                return em.GetEscalaMusical("None", "");
 
             int pesoNota;
 
@@ -555,7 +593,13 @@ namespace TMI_Project.Analisis
 
 
         }
-
+        /// <summary>
+        /// Obtiene un Frame de la señal de audio, desde un punto a otro
+        /// </summary>
+        /// <param name="signal"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
         public Complex[] GetFrame(Complex[] signal, int from, int to)
         {
             Complex[] frame = new Complex[to - from];
@@ -565,6 +609,10 @@ namespace TMI_Project.Analisis
             }
             return frame;
         }
+        /// <summary>
+        /// Aplica la función de Hann Window a una determinada señal de audio
+        /// </summary>
+        /// <param name="data"></param>
         public void HannWindow(ref Complex[] data)
         {
             double aux;
@@ -574,8 +622,12 @@ namespace TMI_Project.Analisis
                 data[i] *= new Complex(aux, 0);
             }
         }
-
-        public double GetPicks(Complex[] signal)
+        /// <summary>
+        /// Obtiene el pick más alto de la señal
+        /// </summary>
+        /// <param name="signal"></param>
+        /// <returns></returns>
+        public double GetPick(Complex[] signal)
         {
             Frecuencias[] frqs = new Frecuencias[signal.Length / 2];
             for (int i = 0; i < signal.Length / 2; i++)
@@ -588,13 +640,18 @@ namespace TMI_Project.Analisis
             {
                 if (j == 1)
                 {
+                    Console.WriteLine(Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero));
                     return Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero);
                 }
                 j++;
             }
             return 0;
         }
-
+        /// <summary>
+        /// Realiza la Transformada Rápida de Fourier a la señal de audio dada
+        /// </summary>
+        /// <param name="samples"></param>
+        /// <returns></returns>
         public Complex[] FFT(Complex[] samples)
         {
             int N = samples.Length;

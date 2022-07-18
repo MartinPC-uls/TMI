@@ -15,6 +15,9 @@ namespace TMI_Project.Grabacion
         [DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
 
+        /// <summary>
+        /// Inicia una grabación de audio
+        /// </summary>
         public void Start()
         {
             mciSendString("open new Type waveaudio Alias recsound", null, 0, 0);
@@ -22,6 +25,9 @@ namespace TMI_Project.Grabacion
                 " 192000 alignment 4", null, 0, 0);
             mciSendString("record recsound", null, 0, 0);
         }
+        /// <summary>
+        /// Detiene la grabación de audio
+        /// </summary>
         public void Stop()
         {
             string filePath = "\"" + AppDomain.CurrentDomain.BaseDirectory + DefaultName + "\"";

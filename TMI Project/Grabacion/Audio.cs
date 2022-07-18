@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Numerics;
 
 namespace TMI_Project.Grabacion
 {
@@ -16,12 +15,19 @@ namespace TMI_Project.Grabacion
         public float[] RealData { get; set; }
         public string NombreArchivoTemporal { get; set; }
 
+        /// <summary>
+        /// Constructor de la clase Audio
+        /// </summary>
+        /// <param name="nombreArchivoTemporal"></param>
         public Audio(string nombreArchivoTemporal)
         {
             this.NombreArchivoTemporal = nombreArchivoTemporal;
             ObtenerElementosAudio();
         }
 
+        /// <summary>
+        /// Obtiene todos los elementos de audio
+        /// </summary>
         private void ObtenerElementosAudio()
         {
             Data = File.ReadAllBytes(NombreArchivoTemporal);

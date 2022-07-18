@@ -9,6 +9,10 @@ namespace TMI_Project
     public partial class IntefazGrabacion : Form
     {
         readonly RecordAudio Audio = null;
+
+        /// <summary>
+        /// Constructor de la clase InterfazGrabacion
+        /// </summary>
         public IntefazGrabacion()
         {
             InitializeComponent();
@@ -20,12 +24,14 @@ namespace TMI_Project
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            lblCountdown.Text = "30";
             Audio.Start();
             btnStart.Enabled = false;
             btnStop.Enabled = true;
             comboBox1.Enabled = false;
             comboBox2.Enabled = false;
             btnGuardar.Enabled = false;
+            timer1.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -68,6 +74,18 @@ namespace TMI_Project
             } catch (Exception)
             {
                 // Do nothing.
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (lblCountdown.Text == "0")
+            {
+                btnStop.PerformClick();
+            }
+            else
+            {
+                lblCountdown.Text = (int.Parse(lblCountdown.Text) - 1).ToString();
             }
         }
     }

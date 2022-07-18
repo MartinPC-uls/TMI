@@ -116,6 +116,9 @@ namespace TMI_Project
         public List<string[]> A_escalas = null;
         public List<string[]> Bescalas = null;
 
+        /// <summary>
+        /// Constructor de la clase EscalasMusicales
+        /// </summary>
         public EscalasMusicales()
         {
             escalas = new List<string[]>();
@@ -302,6 +305,12 @@ namespace TMI_Project
             Bescalas.Add(BLocrian);
         }
 
+        /// <summary>
+        /// Obtiene la escala musical de acuerdo a la nota que se le pase como parámetro
+        /// </summary>
+        /// <param name="tonica"></param>
+        /// <param name="modo"></param>
+        /// <returns></returns>
         public string[] GetEscalaMusical(string tonica, string modo)
         {
             switch (tonica)

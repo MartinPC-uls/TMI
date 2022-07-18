@@ -9,7 +9,7 @@ namespace TMI_Project
     static class Program
     {
         /// <summary>
-        /// Punto de entrada principal para la aplicación.
+        /// Punto de entrada principal para la aplicación
         /// </summary>
         [STAThread]
         static void Main()
