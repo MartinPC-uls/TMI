@@ -23,9 +23,7 @@ namespace TMI_Project.Analisis
         /// <param name="instrumento"></param>
         public AnalizadorFrecuencias(ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox, ref ComboBox instrumento)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "temp.wav"; //<-- MAIN PATH
-            //string path = AppDomain.CurrentDomain.BaseDirectory + "/Notas/B7.wav";
-            //string path = AppDomain.CurrentDomain.BaseDirectory + "notas3.wav";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "temp.wav";
             Instrumento = instrumento.Text;
 
             Audio audio = new Audio(path);
@@ -57,7 +55,7 @@ namespace TMI_Project.Analisis
 
                 if (i + frameSize > s_samples.Length)
                 {
-                    Console.WriteLine("------");
+                    /*Console.WriteLine("------");
                     Console.WriteLine("C: " + nm.Get("C"));
                     Console.WriteLine("C#: " + nm.Get("C#"));
                     Console.WriteLine("D: " + nm.Get("D"));
@@ -69,7 +67,7 @@ namespace TMI_Project.Analisis
                     Console.WriteLine("G#: " + nm.Get("G#"));
                     Console.WriteLine("A: " + nm.Get("A"));
                     Console.WriteLine("A#: " + nm.Get("A#"));
-                    Console.WriteLine("B: " + nm.Get("B"));
+                    Console.WriteLine("B: " + nm.Get("B"));*/
                     GetMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
                     return;
                 }
@@ -90,7 +88,7 @@ namespace TMI_Project.Analisis
                 nFrame++;
                 i -= frameSize / 2;
             }
-            Console.WriteLine("------");
+            /*Console.WriteLine("------");
             Console.WriteLine("C: " + nm.Get("C"));
             Console.WriteLine("C#: " + nm.Get("C#"));
             Console.WriteLine("D: " + nm.Get("D"));
@@ -102,7 +100,7 @@ namespace TMI_Project.Analisis
             Console.WriteLine("G#: " + nm.Get("G#"));
             Console.WriteLine("A: " + nm.Get("A"));
             Console.WriteLine("A#: " + nm.Get("A#"));
-            Console.WriteLine("B: " + nm.Get("B"));
+            Console.WriteLine("B: " + nm.Get("B"));*/
             GetMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
         }
         /// <summary>
@@ -568,7 +566,8 @@ namespace TMI_Project.Analisis
 
             int fundamental = nm.GetNota(notaDominante);
             int ajusteAfinacion = comboBox.SelectedIndex + 1;
-            Console.WriteLine(comboBox.SelectedIndex);
+            if (ajusteAfinacion == 5)
+                ajusteAfinacion = 0;
             fundamental = (fundamental + ajusteAfinacion) <= 12 ? (fundamental + ajusteAfinacion) : (fundamental + ajusteAfinacion) - 12;
 
             notaDominante = nm.GetNota(fundamental);
@@ -640,7 +639,7 @@ namespace TMI_Project.Analisis
             {
                 if (j == 1)
                 {
-                    Console.WriteLine(Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero));
+                    //Console.WriteLine(Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero));
                     return Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero);
                 }
                 j++;

@@ -525,6 +525,7 @@ namespace TMI_Project
                 case 174.96:
                 case 347.22: // extra
                 case 349.91:
+                case 352.22: // extra AÑ
                 case 697.14:
                 case 699.83: // extra
                 case 1394.27: // extra
@@ -552,6 +553,7 @@ namespace TMI_Project
                 case 99.59: // extra
                 case 193.8: // extra
                 case 196.49:
+                case 199.18: // extra AÑADIDO PORQUE ESTABA ANALIZANDO "acordes.wav"
                 case 390.29: // extra
                 case 392.98:
                 case 783.27:
