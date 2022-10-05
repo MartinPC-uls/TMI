@@ -102,6 +102,32 @@ namespace TMI_Project
         public readonly string[] BMixolydian = { B, C_, D_, E, F_, G_, A };
         public readonly string[] BLocrian = { B, C, D, E, F, G, A };
 
+        public readonly string[] CHarmonicMinor = { C, D, D_, F, G, G_, B };
+        public readonly string[] C_HarmonicMinor = { C_, D_, E, F_, G_, A, C };
+        public readonly string[] DHarmonicMinor = { D, E, F, G, A, A_, C_ };
+        public readonly string[] D_HarmonicMinor = { D_, F, F_, G_, A_, B, D };
+        public readonly string[] EHarmonicMinor = { E, F_, G, A, B, C, D_ };
+        public readonly string[] FHarmonicMinor = { F, G, G_, A_, C, C_, E };
+        public readonly string[] F_HarmonicMinor = { F_, G_, A, B, C_, D, F };
+        public readonly string[] GHarmonicMinor = { G, A, A_, C, D, D_, F_ };
+        public readonly string[] G_HarmonicMinor = { G_, A_, B, C_, D_, E, G };
+        public readonly string[] AHarmonicMinor = { A, B, C, D, E, F, G_ };
+        public readonly string[] A_HarmonicMinor = { A_, C, C_, D_, F, F_, A };
+        public readonly string[] BHarmonicMinor = { B, C_, D, E, F_, G, A_ };
+
+        public readonly string[] CHarmonicMajor = { C, D, E, F, G, G_, B };
+        public readonly string[] C_HarmonicMajor = { C_, D_, F, F_, G_, A, C };
+        public readonly string[] DHarmonicMajor = { D, E, F_, G, A, B, C_ };
+        public readonly string[] D_HarmonicMajor = { D_, F, G, G_, A_, C, D };
+        public readonly string[] EHarmonicMajor = { E, F_, G_, A, B, C_, D_ };
+        public readonly string[] FHarmonicMajor = { F, G, A, A_, C, D, E };
+        public readonly string[] F_HarmonicMajor = { F_, G_, A_, B, C_, D_, F };
+        public readonly string[] GHarmonicMajor = { G, A, B, C, D, E, F_ };
+        public readonly string[] G_HarmonicMajor = { G_, A_, C, C_, D_, F, G };
+        public readonly string[] AHarmonicMajor = { A, B, C_, D, E, F_, G_ };
+        public readonly string[] A_HarmonicMajor = { A_, C, D, D_, F, G, A };
+        public readonly string[] BHarmonicMajor = { B, C_, D_, E, F_, G_, A_ };
+
         public List<string[]> escalas = null;
         public List<string[]> Cescalas = null;
         public List<string[]> C_escalas = null;
@@ -303,6 +329,31 @@ namespace TMI_Project
             Bescalas.Add(BLydian);
             Bescalas.Add(BMixolydian);
             Bescalas.Add(BLocrian);
+
+            Cescalas.Add(CHarmonicMinor);
+            Cescalas.Add(CHarmonicMajor);
+            C_escalas.Add(C_HarmonicMinor);
+            C_escalas.Add(C_HarmonicMajor);
+            Descalas.Add(DHarmonicMinor);
+            Descalas.Add(DHarmonicMajor);
+            D_escalas.Add(D_HarmonicMinor);
+            D_escalas.Add(D_HarmonicMajor);
+            Eescalas.Add(EHarmonicMinor);
+            Eescalas.Add(EHarmonicMajor);
+            Fescalas.Add(FHarmonicMinor);
+            Fescalas.Add(FHarmonicMajor);
+            F_escalas.Add(F_HarmonicMinor);
+            F_escalas.Add(F_HarmonicMajor);
+            Gescalas.Add(GHarmonicMinor);
+            Gescalas.Add(GHarmonicMajor);
+            G_escalas.Add(G_HarmonicMinor);
+            G_escalas.Add(G_HarmonicMajor);
+            Aescalas.Add(AHarmonicMinor);
+            Aescalas.Add(AHarmonicMajor);
+            A_escalas.Add(A_HarmonicMinor);
+            A_escalas.Add(A_HarmonicMajor);
+            Bescalas.Add(BHarmonicMinor);
+            Bescalas.Add(BHarmonicMajor);
         }
 
         /// <summary>
@@ -332,6 +383,10 @@ namespace TMI_Project
                             return CMixolydian;
                         case "Locrian":
                             return CLocrian;
+                        case "HarmonicMinor":
+                            return CHarmonicMinor;
+                        case "HarmonicMajor":
+                            return CHarmonicMajor;
                     }
                     break;
                 case "C#":
@@ -351,6 +406,10 @@ namespace TMI_Project
                             return C_Mixolydian;
                         case "Locrian":
                             return C_Locrian;
+                        case "HarmonicMinor":
+                            return C_HarmonicMinor;
+                        case "HarmonicMajor":
+                            return C_HarmonicMajor;
                     }
                     break;
                 case "D":
@@ -370,6 +429,10 @@ namespace TMI_Project
                             return DMixolydian;
                         case "Locrian":
                             return DLocrian;
+                        case "HarmonicMinor":
+                            return DHarmonicMinor;
+                        case "HarmonicMajor":
+                            return DHarmonicMajor;
                     }
                     break;
                 case "D#":
@@ -389,6 +452,10 @@ namespace TMI_Project
                             return D_Mixolydian;
                         case "Locrian":
                             return D_Locrian;
+                        case "HarmonicMinor":
+                            return D_HarmonicMinor;
+                        case "HarmonicMajor":
+                            return D_HarmonicMajor;
                     }
                     break;
                 case "E":
@@ -408,6 +475,10 @@ namespace TMI_Project
                             return EMixolydian;
                         case "Locrian":
                             return ELocrian;
+                        case "HarmonicMinor":
+                            return EHarmonicMinor;
+                        case "HarmonicMajor":
+                            return EHarmonicMajor;
                     }
                     break;
                 case "F":
@@ -427,6 +498,10 @@ namespace TMI_Project
                             return FMixolydian;
                         case "Locrian":
                             return FLocrian;
+                        case "HarmonicMinor":
+                            return FHarmonicMinor;
+                        case "HarmonicMajor":
+                            return FHarmonicMajor;
                     }
                     break;
                 case "F#":
@@ -446,6 +521,10 @@ namespace TMI_Project
                             return F_Mixolydian;
                         case "Locrian":
                             return F_Locrian;
+                        case "HarmonicMinor":
+                            return F_HarmonicMinor;
+                        case "HarmonicMajor":
+                            return F_HarmonicMajor;
                     }
                     break;
                 case "G":
@@ -465,6 +544,10 @@ namespace TMI_Project
                             return GMixolydian;
                         case "Locrian":
                             return GLocrian;
+                        case "HarmonicMinor":
+                            return GHarmonicMinor;
+                        case "HarmonicMajor":
+                            return GHarmonicMajor;
                     }
                     break;
                 case "G#":
@@ -484,6 +567,10 @@ namespace TMI_Project
                             return G_Mixolydian;
                         case "Locrian":
                             return G_Locrian;
+                        case "HarmonicMinor":
+                            return G_HarmonicMinor;
+                        case "HarmonicMajor":
+                            return G_HarmonicMajor;
                     }
                     break;
                 case "A":
@@ -503,6 +590,10 @@ namespace TMI_Project
                             return AMixolydian;
                         case "Locrian":
                             return ALocrian;
+                        case "HarmonicMinor":
+                            return AHarmonicMinor;
+                        case "HarmonicMajor":
+                            return AHarmonicMajor;
                     }
                     break;
                 case "A#":
@@ -522,6 +613,10 @@ namespace TMI_Project
                             return A_Mixolydian;
                         case "Locrian":
                             return A_Locrian;
+                        case "HarmonicMinor":
+                            return A_HarmonicMinor;
+                        case "HarmonicMajor":
+                            return A_HarmonicMajor;
                     }
                     break;
                 case "B":
@@ -541,6 +636,10 @@ namespace TMI_Project
                             return BMixolydian;
                         case "Locrian":
                             return BLocrian;
+                        case "HarmonicMinor":
+                            return BHarmonicMinor;
+                        case "HarmonicMajor":
+                            return BHarmonicMajor;
                     }
                     break;
                 default:

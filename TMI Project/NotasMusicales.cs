@@ -255,186 +255,136 @@ namespace TMI_Project
         {
             switch (freq)
             {
-                //case 32.3: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 64.6: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 129.2: // extra
-                case 131.89:
-                case 261.09:
-                case 263.78: // extra
-                case 522.18:
-                case 524.87: // extra
-                case 1044.36: // extra
-                case 1047.05:
-                case 2091.41: // extra
-                case 2094.1:
+                case 16:
+                case 33:
+                case 65:
+                case 131:
+                case 262:
+                case 523:
+                case 1047:
+                case 2093:
+                case 4186:
                     C += repeticiones;
                     return;
-                //case 34.99: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 69.98: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 137.27:
-                case 139.97: // extra
-                case 274.55: // extra
-                case 277.24:
-                case 279.93: // extra AÑADIDO DE PURO TESTING
-                case 551.79: // extra
-                case 554.48:
-                case 1106.27: // extra
-                case 1108.96:
-                case 2215.23: // extra
-                case 2217.92:
+                case 17:
+                case 35:
+                case 69:
+                case 139:
+                case 277:
+                case 554:
+                case 1109:
+                case 2216:
+                case 4435:
                     C_ += repeticiones;
                     return;
-                //case 37.68:
-                //case 72.67: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 145.35: // extra
-                case 148.04:
-                case 293.39:
-                case 296.08: // extra
-                case 586.78:
-                case 589.47: // extra
-                case 1173.56:
-                case 1176.25: // extra
-                case 2347.12: // extra
-                case 2349.81:
+                case 18:
+                case 37:
+                case 73:
+                case 147:
+                case 294:
+                case 587:
+                case 1175:
+                case 2349:
+                case 4699:
                     D += repeticiones;
                     return;
-                //case 37.68:
-                //case 78.06: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 153.42: // extra
-                case 156.12:
-                case 309.54: // extra
-                case 312.23:
-                case 621.77:
-                case 624.46: // extra
-                case 1243.54:
-                case 1246.23: // extra
-                case 2484.39: // extra
-                case 2487.08:
+                case 19:
+                case 39:
+                case 78:
+                case 156:
+                case 311:
+                case 622:
+                case 1245:
+                case 2489:
+                case 4978:
                     D_ += repeticiones;
                     return;
-                case 40.37:
-                //case 43.07: // extra
-                case 80.75: // extra
-                case 83.44:
-                case 164.19:
-                case 166.88: // extra
-                case 328.38:
-                case 331.07: // extra
-                case 656.76: // extra
-                case 659.45:
-                case 1316.22: // extra
-                case 1318.91:
-                case 2635.13: // extra
-                case 2637.82:
+                case 21:
+                case 41:
+                case 82:
+                case 165:
+                case 330:
+                case 659:
+                case 1319:
+                case 2637:
+                case 5274:
                     E += repeticiones;
                     return;
-                //case 43.07: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 45.76: // extra REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 86.13:
-                case 88.82: // extra
-                case 172.27: // extra
-                case 174.96:
-                case 347.22: // extra
-                case 349.91:
-                case 352.22: // extra AÑ
-                case 697.14:
-                case 699.83: // extra
-                case 1394.27: // extra
-                case 1396.97:
-                case 2791.24: // extra
-                case 2793.93:
+                case 22:
+                case 44:
+                case 87:
+                case 175:
+                case 349:
+                case 699:
+                case 1397:
+                case 2794:
+                case 5588:
                     F += repeticiones;
                     return;
-                //case 45.76: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 48.45: // extra REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 91.52:
-                case 94.21: // extra
-                case 183.03: // extra
-                case 185.72:
-                case 368.76:
-                case 371.45: // extra
-                case 737.51: // extra
-                case 740.2:
-                case 1477.72: // extra
-                case 1480.41:
-                case 2958.12: // extra
-                case 2960.82:
+                case 23:
+                case 46:
+                case 93:
+                case 185:
+                case 370:
+                case 740:
+                case 1480:
+                case 2960:
+                case 5920:
                     F_ += repeticiones;
                     return;
-                //case 48.45: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 96.9:
-                case 99.59: // extra
-                case 193.8: // extra
-                case 196.49:
-                case 199.18: // extra AÑADIDO PORQUE ESTABA ANALIZANDO "acordes.wav"
-                case 390.29: // extra
-                case 392.98:
-                case 783.27:
-                case 785.96: // extra
-                case 1566.54: // extra
-                case 1569.23:
-                case 3135.77:
-                case 3138.46: // extra
+                case 25:
+                case 49:
+                case 98:
+                case 196:
+                case 392:
+                case 784:
+                case 1568:
+                case 3136:
+                case 6272:
                     G += repeticiones;
                     return;
-                //case 51.14: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 102.28: // extra
-                case 104.97:
-                case 207.26:
-                case 209.95: // extra
-                case 414.51:
-                case 417.21: // extra
-                case 829.03: // extra
-                case 831.72:
-                case 1660.75:
-                case 1663.44: // extra
-                case 3321.5:
-                case 3324.19: // extra
+                case 26:
+                case 52:
+                case 104:
+                case 208:
+                case 415:
+                case 831:
+                case 1661:
+                case 3322:
+                case 6645:
                     G_ += repeticiones;
                     return;
-                //case 53.83: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 107.67: // extra
-                case 110.36:
-                case 218.02: // extra
-                case 220.72:
-                case 438.74:
-                case 441.43: // extra
-                case 877.48: // extra
-                case 880.17:
-                case 1757.65: // extra
-                case 1760.34:
-                case 3517.99: // extra
-                case 3520.68:
+                case 28:
+                case 55:
+                case 110:
+                case 220:
+                case 440:
+                case 880:
+                case 1760:
+                case 3520:
+                case 7040:
                     A += repeticiones;
                     return;
-                //case 59.22: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 115.74:
-                case 118.43: // extra
-                case 231.48: // extra
-                case 234.17:
-                case 465.66:
-                case 468.35: // extra
-                case 931.31:
-                case 934: // extra
-                case 1862.62: // extra
-                case 1865.31:
-                case 3727.94: // extra
-                case 3730.63:
+                case 29:
+                case 58:
+                case 117:
+                case 233:
+                case 466:
+                case 932:
+                case 1865:
+                case 3729:
+                case 7459:
                     A_ += repeticiones;
                     return;
-                //case 61.91: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 121.12: // extra
-                case 123.82:
-                case 244.94: // extra
-                case 247.63:
-                case 492.57:
-                case 495.26: // extra
-                case 985.14: // extra
-                case 987.84:
-                case 1972.98: // extra
-                case 1975.67:
-                case 3948.65: // extra
-                case 3951.34:
+                case 31:
+                case 62:
+                case 124:
+                case 247:
+                case 494:
+                case 988:
+                case 1976:
+                case 3951:
+                case 7902:
                     B += repeticiones;
                     return;
             }
@@ -449,420 +399,129 @@ namespace TMI_Project
         {
             switch (freq)
             {
-                //case 32.3: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 64.6: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 129.2: // extra
-                case 131.89:
-                case 261.09:
-                case 263.78: // extra
-                case 522.18:
-                case 524.87: // extra
-                case 1044.36: // extra
-                case 1047.05:
-                case 2091.41: // extra
-                case 2094.1:
+                case 16:
+                case 33:
+                case 65:
+                case 131:
+                case 262:
+                case 523:
+                case 1047:
+                case 2093:
+                case 4186:
                     return 1;
-                //case 34.99: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 69.98: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 137.27:
-                case 139.97: // extra
-                case 274.55: // extra
-                case 277.24:
-                case 279.93: // extra AÑADIDO DE PURO TESTING
-                case 551.79: // extra
-                case 554.48:
-                case 1106.27: // extra
-                case 1108.96:
-                case 2215.23: // extra
-                case 2217.92:
+                case 17:
+                case 35:
+                case 69:
+                case 139:
+                case 277:
+                case 554:
+                case 1109:
+                case 2216:
+                case 4435:
                     return 2;
-                //case 37.68:
-                //case 72.67: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 145.35: // extra
-                case 148.04:
-                case 293.39:
-                case 296.08: // extra
-                case 586.78:
-                case 589.47: // extra
-                case 1173.56:
-                case 1176.25: // extra
-                case 2347.12: // extra
-                case 2349.81:
+                case 18:
+                case 37:
+                case 73:
+                case 147:
+                case 294:
+                case 587:
+                case 1175:
+                case 2349:
+                case 4699:
                     return 3;
-                //case 37.68:
-                //case 78.06: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 153.42: // extra
-                case 156.12:
-                case 309.54: // extra
-                case 312.23:
-                case 621.77:
-                case 624.46: // extra
-                case 1243.54:
-                case 1246.23: // extra
-                case 2484.39: // extra
-                case 2487.08:
+                case 19:
+                case 39:
+                case 78:
+                case 156:
+                case 311:
+                case 622:
+                case 1245:
+                case 2489:
+                case 4978:
                     return 4;
-                case 40.37:
-                //case 43.07: // extra
-                case 80.75: // extra
-                case 83.44:
-                case 164.19:
-                case 166.88: // extra
-                case 328.38:
-                case 331.07: // extra
-                case 656.76: // extra
-                case 659.45:
-                case 1316.22: // extra
-                case 1318.91:
-                case 2635.13: // extra
-                case 2637.82:
+                case 21:
+                case 41:
+                case 82:
+                case 165:
+                case 330:
+                case 659:
+                case 1319:
+                case 2637:
+                case 5274:
                     return 5;
-                //case 43.07: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 45.76: // extra REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 86.13:
-                case 88.82: // extra
-                case 172.27: // extra
-                case 174.96:
-                case 347.22: // extra
-                case 349.91:
-                case 352.22: // extra AÑ
-                case 697.14:
-                case 699.83: // extra
-                case 1394.27: // extra
-                case 1396.97:
-                case 2791.24: // extra
-                case 2793.93:
+                case 22:
+                case 44:
+                case 87:
+                case 175:
+                case 349:
+                case 699:
+                case 1397:
+                case 2794:
+                case 5588:
                     return 6;
-                //case 45.76: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                //case 48.45: // extra REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 91.52:
-                case 94.21: // extra
-                case 183.03: // extra
-                case 185.72:
-                case 368.76:
-                case 371.45: // extra
-                case 737.51: // extra
-                case 740.2:
-                case 1477.72: // extra
-                case 1480.41:
-                case 2958.12: // extra
-                case 2960.82:
+                case 23:
+                case 46:
+                case 93:
+                case 185:
+                case 370:
+                case 740:
+                case 1480:
+                case 2960:
+                case 5920:
                     return 7;
-                //case 48.45: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 96.9:
-                case 99.59: // extra
-                case 193.8: // extra
-                case 196.49:
-                case 199.18: // extra AÑADIDO PORQUE ESTABA ANALIZANDO "acordes.wav"
-                case 390.29: // extra
-                case 392.98:
-                case 783.27:
-                case 785.96: // extra
-                case 1566.54: // extra
-                case 1569.23:
-                case 3135.77:
-                case 3138.46: // extra
+                case 25:
+                case 49:
+                case 98:
+                case 196:
+                case 392:
+                case 784:
+                case 1568:
+                case 3136:
+                case 6272:
                     return 8;
-                //case 51.14: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 102.28: // extra
-                case 104.97:
-                case 207.26:
-                case 209.95: // extra
-                case 414.51:
-                case 417.21: // extra
-                case 829.03: // extra
-                case 831.72:
-                case 1660.75:
-                case 1663.44: // extra
-                case 3321.5:
-                case 3324.19: // extra
+                case 26:
+                case 52:
+                case 104:
+                case 208:
+                case 415:
+                case 831:
+                case 1661:
+                case 3322:
+                case 6645:
                     return 9;
-                //case 53.83: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 107.67: // extra
-                case 110.36:
-                case 218.02: // extra
-                case 220.72:
-                case 438.74:
-                case 441.43: // extra
-                case 877.48: // extra
-                case 880.17:
-                case 1757.65: // extra
-                case 1760.34:
-                case 3517.99: // extra
-                case 3520.68:
+                case 28:
+                case 55:
+                case 110:
+                case 220:
+                case 440:
+                case 880:
+                case 1760:
+                case 3520:
+                case 7040:
                     return 10;
-                //case 59.22: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 115.74:
-                case 118.43: // extra
-                case 231.48: // extra
-                case 234.17:
-                case 465.66:
-                case 468.35: // extra
-                case 931.31:
-                case 934: // extra
-                case 1862.62: // extra
-                case 1865.31:
-                case 3727.94: // extra
-                case 3730.63:
+                case 29:
+                case 58:
+                case 117:
+                case 233:
+                case 466:
+                case 932:
+                case 1865:
+                case 3729:
+                case 7459:
                     return 11;
-                //case 61.91: REMOVIDO POR LA COMBINACIÓN MIXTA DE LOS 2 MÉTODOS
-                case 121.12: // extra
-                case 123.82:
-                case 244.94: // extra
-                case 247.63:
-                case 492.57:
-                case 495.26: // extra
-                case 985.14: // extra
-                case 987.84:
-                case 1972.98: // extra
-                case 1975.67:
-                case 3948.65: // extra
-                case 3951.34:
+                case 31:
+                case 62:
+                case 124:
+                case 247:
+                case 494:
+                case 988:
+                case 1976:
+                case 3951:
+                case 7902:
                     return 12;
                 default:
                     return 0;
             }
         }
-
-        /*public void Add(double freq, int repeticiones = 1)
-        {
-            switch (freq)
-            {
-                // C
-                //case 34.99:
-                //case 67.29:
-                case 129.2:
-                case 263.78:
-                case 524.87:
-                case 1044.36:
-                case 2091.41:
-                    C += repeticiones;
-                    return;
-                // C#
-                //case 32.3:
-                //case 67.29:
-                case 139.97:
-                case 274.55:
-                case 551.79:
-                case 1106.27:
-                case 2215.23:
-                    C_ += repeticiones;
-                    return;
-                // D
-                //case 34.99:
-                //case 75.37:
-                case 145.35:
-                case 296.08:
-                case 589.47:
-                case 1176.25:
-                case 2347.12:
-                    D += repeticiones;
-                    return;
-                // D#
-                //case 40.37: //NO ESTÁ MAL, PERO NO SE SI ES CORRECTO
-                //case 75.37:
-                case 153.42:
-                case 309.54:
-                case 624.46:
-                case 1246.23:
-                case 2484.39:
-                    D_ += repeticiones;
-                    return;
-                // E
-                case 43.07:
-                case 80.75:
-                case 166.88:
-                case 331.07:
-                case 656.76:
-                case 1316.22:
-                case 2635.13:
-                    E += repeticiones;
-                    return;
-                // F
-                case 45.76:
-                case 88.82:
-                case 172.27:
-                case 347.22:
-                case 699.83:
-                case 1394.27:
-                case 2791.24:
-                    F += repeticiones;
-                    return;
-                // F#
-                case 48.45:
-                case 94.21:
-                case 183.03:
-                case 371.45:
-                case 737.51:
-                case 1477.72:
-                case 2958.12:
-                    F_ += repeticiones;
-                    return;
-                // G
-                case 51.14:
-                case 99.59:
-                case 193.8:
-                case 390.29:
-                case 785.96:
-                case 1566.54:
-                case 3138.46:
-                    G += repeticiones;
-                    return;
-                // G#
-                case 53.83:
-                case 102.28:
-                case 209.95:
-                case 417.21:
-                case 829.03:
-                case 1663.44:
-                case 3324.19:
-                    G_ += repeticiones;
-                    return;
-                // A
-                //case 56.52:
-                case 107.67:
-                case 218.02:
-                case 441.43:
-                case 877.48:
-                case 1757.65:
-                case 3517.99:
-                    A += repeticiones;
-                    return;
-                // A#
-                //case 56.52:
-                case 118.43:
-                case 231.48:
-                case 468.35:
-                case 934:
-                case 1862.62:
-                case 3727.94:
-                    A_ += repeticiones;
-                    return;
-                case 59.22:
-                case 121.12:
-                case 244.94:
-                case 495.26:
-                case 985.14:
-                case 1972.98:
-                case 3948.65:
-                    B += repeticiones;
-                    return;
-            }
-        }
-        public int GetNota(double freq)
-        {
-            switch (freq)
-            {
-                // C
-                //case 34.99:
-                //case 67.29:
-                case 129.2:
-                case 263.78:
-                case 524.87:
-                case 1044.36:
-                case 2091.41:
-                    return 1;
-                // C#
-                //case 32.3:
-                //case 67.29:
-                case 139.97:
-                case 274.55:
-                case 551.79:
-                case 1106.27:
-                case 2215.23:
-                    return 2;
-                // D
-                //case 34.99:
-                //case 75.37:
-                case 145.35:
-                case 296.08:
-                case 589.47:
-                case 1176.25:
-                case 2347.12:
-                    return 3;
-                // D#
-                //case 40.37: NO ESTÁ MAL, PERO NO SE SI ES CORRECTO
-                //case 75.37:
-                case 153.42:
-                case 309.54:
-                case 624.46:
-                case 1246.23:
-                case 2484.39:
-                    return 4;
-                // E
-                case 43.07:
-                case 80.75:
-                case 166.88:
-                case 331.07:
-                case 656.76:
-                case 1316.22:
-                case 2635.13:
-                    return 5;
-                // F
-                case 45.76:
-                case 88.82:
-                case 172.27:
-                case 347.22:
-                case 699.83:
-                case 1394.27:
-                case 2791.24:
-                    return 6;
-                // F#
-                case 48.45:
-                case 94.21:
-                case 183.03:
-                case 371.45:
-                case 737.51:
-                case 1477.72:
-                case 2958.12:
-                    return 7;
-                // G
-                case 51.14:
-                case 99.59:
-                case 193.8:
-                case 390.29:
-                case 785.96:
-                case 1566.54:
-                case 3138.46:
-                    return 8;
-                // G#
-                case 53.83:
-                case 102.28:
-                case 209.95:
-                case 417.21:
-                case 829.03:
-                case 1663.44:
-                case 3324.19:
-                    return 9;
-                // A
-                //case 56.52:
-                case 107.67:
-                case 218.02:
-                case 441.43:
-                case 877.48:
-                case 1757.65:
-                case 3517.99:
-                    return 10;
-                // A#
-                //case 56.52:
-                case 118.43:
-                case 231.48:
-                case 468.35:
-                case 934:
-                case 1862.62:
-                case 3727.94:
-                    return 11;
-                case 59.22:
-                case 121.12:
-                case 244.94:
-                case 495.26:
-                case 985.14:
-                case 1972.98:
-                case 3948.65:
-                    return 12;
-                default:
-                    return 0;
-            }
-        }*/
     }
 }

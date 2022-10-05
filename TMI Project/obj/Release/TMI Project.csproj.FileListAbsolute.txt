@@ -12,3 +12,39 @@ C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI Project.cspr
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI Project.csproj.CopyComplete
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI Project.exe
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI Project.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\MaterialSkin.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Drawing.Common.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Numerics.Vectors.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Numerics.Vectors.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.WinForms.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.Wpf.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.WinForms.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.WinForms.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.Wpf.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\LiveCharts.Wpf.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.Asio.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.Core.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.Midi.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.Wasapi.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.WinForms.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.WinMM.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Security.AccessControl.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\Microsoft.Win32.Registry.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\NAudio.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Security.AccessControl.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.InterfazAudio.resources
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\Interop.WMPLib.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI Project.csproj.ResolveComReference.cache
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.LoopConfiguration.resources
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\ScottPlot.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\ScottPlot.xml
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.ElegirAudioTrack.resources
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.ConfigMenu.resources
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.MostradorEscalaMusical.resources

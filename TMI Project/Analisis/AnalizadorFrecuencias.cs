@@ -12,19 +12,21 @@ namespace TMI_Project.Analisis
         private readonly Audio _audio;
         private readonly int Fs;
         private readonly int FrameSize = 16384; // 2^14
-        private readonly string Instrumento;
+        private string[] Afinacion;
+        private string Instrumento;
+        private AnalizadorMusical am;
         
         /// <summary>
         /// Constructor de la clase AnalizadorFrecuencias
         /// </summary>
-        /// <param name="pictureBox"></param>
+        /// <param name="diagramaInstrumento"></param>
         /// <param name="nombreEscalaLabel"></param>
-        /// <param name="comboBox"></param>
-        /// <param name="instrumento"></param>
-        public AnalizadorFrecuencias(ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox, ref ComboBox instrumento)
+        /// <param name="afinacionCB"></param>
+        /// <param name="instrumentoCB"></param>
+        public AnalizadorFrecuencias(ref PictureBox diagramaInstrumento, ref Label nombreEscalaLabel, ref ComboBox afinacionCB, ref ComboBox instrumentoCB)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + "temp.wav";
-            Instrumento = instrumento.Text;
+            Instrumento = afinacionCB.Text;
 
             Audio audio = new Audio(path);
             _audio = audio;
@@ -35,8 +37,29 @@ namespace TMI_Project.Analisis
                 samples[i] = new Complex(audio.RealData[i], 0);
             }
 
-            DeterminarEscala(samples, FrameSize, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
+            DeterminarEscala(samples, FrameSize);
         }
+        public AnalizadorFrecuencias(string fileName, string[] afinacion, string instrumento)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"Project\_" + fileName + ".wav";
+            Afinacion = afinacion;
+            foreach (var nota in Afinacion)
+            {
+                Console.WriteLine("af: " + nota);
+            }
+            Instrumento = instrumento;
+            Audio audio = new Audio(path);
+            _audio = audio;
+            Fs = audio.SampleRate;
+            Complex[] samples = new Complex[audio.RealData.Length];
+            for (int i = 0; i < audio.RealData.Length; i++)
+            {
+                samples[i] = new Complex(audio.RealData[i], 0);
+            }
+            am = new AnalizadorMusical();
+            DeterminarEscala(samples, FrameSize);
+        }
+        public AnalizadorFrecuencias() {}
         /// <summary>
         /// Determina la escala musical y la muestra en un PictureBox.
         /// </summary>
@@ -45,214 +68,65 @@ namespace TMI_Project.Analisis
         /// <param name="pictureBox"></param>
         /// <param name="nombreEscalaLabel"></param>
         /// <param name="comboBox"></param>
-        public void DeterminarEscala(Complex[] s_samples, int frameSize, ref PictureBox pictureBox, ref Label nombreEscalaLabel, ref ComboBox comboBox)
+        public void DeterminarEscala(Complex[] s_samples, int frameSize)
         {
-            NotasMusicales nm = new NotasMusicales();
+            //NotasMusicales nm = new NotasMusicales();
             int nFrame = 1;
-            List<Complex[]> fft_frames = new List<Complex[]>();
             for (int i = 0; i < s_samples.Length; i += frameSize)
             {
 
                 if (i + frameSize > s_samples.Length)
                 {
-                    /*Console.WriteLine("------");
-                    Console.WriteLine("C: " + nm.Get("C"));
-                    Console.WriteLine("C#: " + nm.Get("C#"));
-                    Console.WriteLine("D: " + nm.Get("D"));
-                    Console.WriteLine("D#: " + nm.Get("D#"));
-                    Console.WriteLine("E: " + nm.Get("E"));
-                    Console.WriteLine("F: " + nm.Get("F"));
-                    Console.WriteLine("F#: " + nm.Get("F#"));
-                    Console.WriteLine("G: " + nm.Get("G"));
-                    Console.WriteLine("G#: " + nm.Get("G#"));
-                    Console.WriteLine("A: " + nm.Get("A"));
-                    Console.WriteLine("A#: " + nm.Get("A#"));
-                    Console.WriteLine("B: " + nm.Get("B"));*/
-                    GetMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
+                    GetMusicalScale(am);
                     return;
                 }
                 Complex[] frame = GetFrame(s_samples, i, i + frameSize);
-                HannWindow(ref frame);
+                GaussianWindow(ref frame);
                 Complex[] fft_values = FFT(frame);
-                fft_frames.Add(fft_values);
-                double f = GetPick(fft_values);
-                nm.Add(f, 20); // antes 2
-                double avg = Queryable.Average(fft_values.Select(m => m.Magnitude).ToList().AsQueryable());
-
-                Armonicos armonicos = new Armonicos(fft_values, f, _audio, avg);
-                int[] arm = armonicos.Armonico;
-                for (int j = 0; j < arm.Length; j++)
-                {
-                    nm.Add(nm.GetNota(arm[j]), 10); // antes 20; 10
-                }
+                am.ObtenerNotasMusicales(fft_values);
                 nFrame++;
                 i -= frameSize / 2;
             }
-            /*Console.WriteLine("------");
-            Console.WriteLine("C: " + nm.Get("C"));
-            Console.WriteLine("C#: " + nm.Get("C#"));
-            Console.WriteLine("D: " + nm.Get("D"));
-            Console.WriteLine("D#: " + nm.Get("D#"));
-            Console.WriteLine("E: " + nm.Get("E"));
-            Console.WriteLine("F: " + nm.Get("F"));
-            Console.WriteLine("F#: " + nm.Get("F#"));
-            Console.WriteLine("G: " + nm.Get("G"));
-            Console.WriteLine("G#: " + nm.Get("G#"));
-            Console.WriteLine("A: " + nm.Get("A"));
-            Console.WriteLine("A#: " + nm.Get("A#"));
-            Console.WriteLine("B: " + nm.Get("B"));*/
-            GetMusicalScale(nm, ref pictureBox, ref nombreEscalaLabel, ref comboBox);
+            GetMusicalScale(am);
         }
         /// <summary>
         /// Obtiene la escala musical basado en las notas musicales encontradas.
         /// </summary>
-        /// <param name="nm"></param>
+        /// <param name="am"></param>
         /// <param name="pictureBox"></param>
         /// <param name="nombreEscalaMusical"></param>
         /// <param name="comboBox"></param>
-        public void GetMusicalScale(NotasMusicales nm, ref PictureBox pictureBox, ref Label nombreEscalaMusical, ref ComboBox comboBox)
+        public void GetMusicalScale(AnalizadorMusical am)
         {
-            int[] repeticiones = new int[12];
-            repeticiones[0] = nm.Get("C");
-            repeticiones[1] = nm.Get("C#");
-            repeticiones[2] = nm.Get("D");
-            repeticiones[3] = nm.Get("D#");
-            repeticiones[4] = nm.Get("E");
-            repeticiones[5] = nm.Get("F");
-            repeticiones[6] = nm.Get("F#");
-            repeticiones[7] = nm.Get("G");
-            repeticiones[8] = nm.Get("G#");
-            repeticiones[9] = nm.Get("A");
-            repeticiones[10] = nm.Get("A#");
-            repeticiones[11] = nm.Get("B");
+            // TODO
+            string notaDominante = am.GetDominantNote();
 
-            int average = 0;
-            for (int j = 0; j < repeticiones.Length; j++)
-            {
-                average += repeticiones[j];
-            }
-            average /= repeticiones.Length;
+            string[] musicalScale = CalcularEscala(notaDominante, am);
 
-            int cantidad = 12;
-            for (int k = 0; k < repeticiones.Length; k++)
-            {
-                if (repeticiones[k] < average)
-                {
-                    repeticiones[k] = 0;
-                    cantidad -= 1;
-                }
-            }
-
-            Array.Sort(repeticiones);
-            //Console.WriteLine("-----------------x-xxxxxxxxxx-------------x------------------");
-            //Console.WriteLine("Notas identificadas: " + cantidad);
-            int nota = 0;
-            int[] ordenNotas = new int[12];
-            for (int i = 0; i < repeticiones.Length; i++)
-            {
-                if (repeticiones[i] == nm.Get("C"))
-                {
-                    nota = 1;
-                    ordenNotas[i] = 1;
-                }
-                else if (repeticiones[i] == nm.Get("C#"))
-                {
-                    nota = 2;
-                    ordenNotas[i] = 2;
-                }
-                else if (repeticiones[i] == nm.Get("D"))
-                {
-                    nota = 3;
-                    ordenNotas[i] = 3;
-                }
-                else if (repeticiones[i] == nm.Get("D#"))
-                {
-                    nota = 4;
-                    ordenNotas[i] = 4;
-                }
-                else if (repeticiones[i] == nm.Get("E"))
-                {
-                    nota = 5;
-                    ordenNotas[i] = 5;
-                }
-                else if (repeticiones[i] == nm.Get("F"))
-                {
-                    nota = 6;
-                    ordenNotas[i] = 6;
-                }
-                else if (repeticiones[i] == nm.Get("F#"))
-                {
-                    nota = 7;
-                    ordenNotas[i] = 7;
-                }
-                else if (repeticiones[i] == nm.Get("G"))
-                {
-                    nota = 8;
-                    ordenNotas[i] = 8;
-                }
-                else if (repeticiones[i] == nm.Get("G#"))
-                {
-                    nota = 9;
-                    ordenNotas[i] = 9;
-                }
-                else if (repeticiones[i] == nm.Get("A"))
-                {
-                    nota = 10;
-                    ordenNotas[i] = 10;
-                }
-                else if (repeticiones[i] == nm.Get("A#"))
-                {
-                    nota = 11;
-                    ordenNotas[i] = 11;
-                }
-                else if (repeticiones[i] == nm.Get("B"))
-                {
-                    nota = 12;
-                    ordenNotas[i] = 12;
-                }
-            }
-            int[] _ordenNotas = new int[ordenNotas.Length];
-            for (int i = 0; i < ordenNotas.Length; i++)
-            {
-                _ordenNotas[i] = ordenNotas[i];
-            }
-            string notaDominante = nm.GetNota(nota);
-
-            string[] musicalScale = CalcularEscala(notaDominante, nm, ref comboBox);
-            GeneradorEscala sg = new GeneradorEscala();
-
-            sg.MostrarEscalaMusical(musicalScale, pictureBox, Instrumento, nombreEscalaMusical);
+            //sg.MostrarEscalaMusical(musicalScale, Instrumento);
+            new MostradorEscalaMusical(musicalScale, Afinacion).ShowDialog(); // TODO
         }
         /// <summary>
         /// Calcula la escala musical para determinar cuál es la más adecuada.
         /// </summary>
         /// <param name="notaDominante"></param>
-        /// <param name="nm"></param>
+        /// <param name="am"></param>
         /// <param name="comboBox"></param>
         /// <returns></returns>
-        public string[] CalcularEscala(string notaDominante, NotasMusicales nm, ref ComboBox comboBox)
+        public string[] CalcularEscala(string notaDominante, AnalizadorMusical am)
         {
             EscalasMusicales em = new EscalasMusicales();
             List<string[]> escala;
-            int[] pesos = new int[7];
-            int peso_major = 0;
-            int peso_minor = 0;
-            int peso_dorian = 0;
-            int peso_phrygian = 0;
-            int peso_lydian = 0;
-            int peso_mixolydian = 0;
-            int peso_locrian = 0;
+            double[] pesos = new double[7];
+            double peso_major = 0;
+            double peso_minor = 0;
+            double peso_dorian = 0;
+            double peso_phrygian = 0;
+            double peso_lydian = 0;
+            double peso_mixolydian = 0;
+            double peso_locrian = 0;
 
-            int sum = 0;
-            for (int i = 1; i <= 12; i++)
-            {
-                sum += nm.Get(i);
-            }
-            sum /= 12;
-            if (sum <= 20)
-                return em.GetEscalaMusical("None", "");
-
-            int pesoNota;
+            double pesoNota;
 
             switch (notaDominante)
             {
@@ -262,7 +136,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.CMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.CMinor)
@@ -286,7 +160,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.C_Major)
                                 peso_major += pesoNota;
                             else if (_escala == em.C_Minor)
@@ -310,7 +184,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.DMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.DMinor)
@@ -334,7 +208,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.D_Major)
                                 peso_major += pesoNota;
                             else if (_escala == em.D_Minor)
@@ -358,7 +232,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.EMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.EMinor)
@@ -382,7 +256,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.FMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.FMinor)
@@ -406,7 +280,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.F_Major)
                                 peso_major += pesoNota;
                             else if (_escala == em.F_Minor)
@@ -430,7 +304,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.GMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.GMinor)
@@ -454,7 +328,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.G_Major)
                                 peso_major += pesoNota;
                             else if (_escala == em.G_Minor)
@@ -478,7 +352,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.AMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.AMinor)
@@ -502,7 +376,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.A_Major)
                                 peso_major += pesoNota;
                             else if (_escala == em.A_Minor)
@@ -526,7 +400,7 @@ namespace TMI_Project.Analisis
                     {
                         for (int i = 0; i < _escala.Length; i++)
                         {
-                            pesoNota = nm.Get(_escala[i]);
+                            pesoNota = am.GetMagnitude(_escala[i]);
                             if (_escala == em.BMajor)
                                 peso_major += pesoNota;
                             else if (_escala == em.BMinor)
@@ -553,7 +427,7 @@ namespace TMI_Project.Analisis
             pesos[5] = peso_mixolydian;
             pesos[6] = peso_locrian;
 
-            int aux = pesos[0];
+            double aux = pesos[0];
             int point = 0;
             for (int i = 1; i < pesos.Length; i++)
             {
@@ -564,13 +438,9 @@ namespace TMI_Project.Analisis
                 }
             }
 
-            int fundamental = nm.GetNota(notaDominante);
-            int ajusteAfinacion = comboBox.SelectedIndex + 1;
-            if (ajusteAfinacion == 5)
-                ajusteAfinacion = 0;
-            fundamental = (fundamental + ajusteAfinacion) <= 12 ? (fundamental + ajusteAfinacion) : (fundamental + ajusteAfinacion) - 12;
+            int fundamental = am.GetNote(notaDominante);
 
-            notaDominante = nm.GetNota(fundamental);
+            notaDominante = am.GetNote(fundamental);
 
             string modo = null;
             if (point == 0)
@@ -592,6 +462,7 @@ namespace TMI_Project.Analisis
 
 
         }
+
         /// <summary>
         /// Obtiene un Frame de la señal de audio, desde un punto a otro
         /// </summary>
@@ -606,6 +477,16 @@ namespace TMI_Project.Analisis
             {
                 frame[i] = signal[j];
             }
+            /*Complex[] e_frame = new Complex[22050];
+            for (int i = 0; i < e_frame.Length; i++)
+            {
+                if (i < frame.Length)
+                    e_frame[i] = frame[i];
+                else
+                    e_frame[i] = new Complex(0, 0);
+            }
+            //Console.WriteLine("FrameSize: " + e_frame.Length);
+            return e_frame;*/
             return frame;
         }
         /// <summary>
@@ -618,6 +499,24 @@ namespace TMI_Project.Analisis
             for (int i = 0; i < data.Length; i++)
             {
                 aux = 0.5 * (1 - Math.Cos((2 * Math.PI * i) / (data.Length - 1)));
+                data[i] *= new Complex(aux, 0);
+            }
+        }
+        public void GaussianWindow(ref Complex[] data)
+        {
+            double aux;
+            for (int i = 0; i < data.Length; i++)
+            {
+                aux = Math.Exp(-0.5 * Math.Pow(((i - (data.Length - 1) / 2) / ((0.4 * (data.Length - 1)) / 2)), 2));
+                data[i] *= new Complex(aux, 0);
+            }
+        }
+        public void HammingWindow(ref Complex[] data)
+        {
+            double aux;
+            for (int i = 0; i < data.Length; i++)
+            {
+                aux = 0.54 - (0.46 * Math.Cos((2 * Math.PI * i) / (data.Length - 1)));
                 data[i] *= new Complex(aux, 0);
             }
         }
@@ -639,13 +538,56 @@ namespace TMI_Project.Analisis
             {
                 if (j == 1)
                 {
-                    //Console.WriteLine(Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero));
                     return Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero);
                 }
                 j++;
             }
             return 0;
         }
+        public double GetPick(Complex[] signal, int Fs, int FrameSize)
+        {
+            Frecuencias[] frqs = new Frecuencias[signal.Length / 2];
+            for (int i = 0; i < signal.Length / 2; i++)
+            {
+                frqs[i] = new Frecuencias { Freqbin = i, Amplitude = signal[i].Magnitude };
+            }
+            var _f = frqs.OrderByDescending(amp => amp.Amplitude);
+            int j = 0;
+            foreach (Frecuencias f in _f)
+            {
+                /* ANTES:
+                if (j == 1)
+                {
+                    return Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero);
+                }*/
+                if (j == 0)
+                {
+                    return Math.Round((double)f.Freqbin * Fs / FrameSize, 2, MidpointRounding.AwayFromZero);
+                }
+                j++;
+            }
+            return 0;
+        }
+        /*public double GetPick(Complex[] signal, int frameSize, int fs)
+        {
+            Frecuencias[] frqs = new Frecuencias[signal.Length / 2];
+            for (int i = 0; i < signal.Length / 2; i++)
+            {
+                frqs[i] = new Frecuencias { Freqbin = i, Amplitude = signal[i].Magnitude };
+            }
+            var _f = frqs.OrderByDescending(amp => amp.Amplitude);
+            int j = 0;
+            foreach (Frecuencias f in _f)
+            {
+                if (j == 1)
+                {
+                    return Math.Round((double)f.Freqbin * (fs/2) / frameSize, 2, MidpointRounding.AwayFromZero);
+                }
+                j++;
+            }
+            return 0;
+        }*/
+
         /// <summary>
         /// Realiza la Transformada Rápida de Fourier a la señal de audio dada
         /// </summary>

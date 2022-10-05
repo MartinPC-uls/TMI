@@ -16,7 +16,8 @@ namespace TMI_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IntefazGrabacion());
+            //Application.Run(new IntefazGrabacion());
+            Application.Run(new InterfazAudio());
         }
     }
 }
