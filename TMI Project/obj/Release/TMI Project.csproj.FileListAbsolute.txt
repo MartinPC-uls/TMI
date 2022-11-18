@@ -48,3 +48,53 @@ C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\ScottPlot.xml
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.ElegirAudioTrack.resources
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.ConfigMenu.resources
 C:\Users\ghanv\source\repos\TMI Project\TMI Project\obj\Release\TMI_Project.MostradorEscalaMusical.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\TMI Project.exe.config
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\TMI Project.exe
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\TMI Project.pdb
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.WinForms.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.Wpf.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\MaterialSkin.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\Microsoft.Win32.Registry.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.Asio.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.Core.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.Midi.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.Wasapi.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.WinForms.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.WinMM.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\ScottPlot.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Drawing.Common.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Numerics.Vectors.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Security.AccessControl.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Security.Principal.Windows.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.ValueTuple.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.pdb
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.WinForms.pdb
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.WinForms.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.Wpf.pdb
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\LiveCharts.Wpf.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\Microsoft.Win32.Registry.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\NAudio.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\ScottPlot.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Numerics.Vectors.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Security.AccessControl.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.Security.Principal.Windows.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\bin\Release\System.ValueTuple.xml
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.AssemblyReference.cache
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\Interop.WMPLib.dll
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.ResolveComReference.cache
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.ConfigMenu.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.ElegirAudioTrack.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.IntefazGrabacion.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.InterfazAudio.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.LoopConfiguration.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.MostradorEscalaMusical.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI_Project.Properties.Resources.resources
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.GenerateResource.cache
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.CoreCompileInputs.cache
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.CopyComplete
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.exe
+C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.pdb

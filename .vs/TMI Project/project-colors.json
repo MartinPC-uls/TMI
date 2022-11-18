@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "457844e0-7317-4af8-862a-82575efaaf56": {
+      "ProjectGuid": "457844e0-7317-4af8-862a-82575efaaf56",
+      "DisplayName": "TMI Project",
+      "ColorIndex": 0
+    },
+    "7c20e1f2-8701-4151-abdd-9587b6951133": {
+      "ProjectGuid": "7c20e1f2-8701-4151-abdd-9587b6951133",
+      "DisplayName": "PruebasMGE",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

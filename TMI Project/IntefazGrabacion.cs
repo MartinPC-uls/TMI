@@ -46,6 +46,7 @@ namespace TMI_Project
             materialSkinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
 
             textBox1.Visible = false;
+            groupBox1.Visible = false;
         }
 
         private void CreateAudioTrackBox(AudioTrack audioTrack, bool autoRecord = false, bool autoPlay = false)
@@ -578,15 +579,25 @@ namespace TMI_Project
                 const string message = "¿Desea guardar los cambios realizados?";
                 const string caption = "Guardar";
                 var result = MessageBox.Show(message, caption,
-                                             MessageBoxButtons.YesNo,
+                                             MessageBoxButtons.YesNoCancel,
                                              MessageBoxIcon.Question);
+
+
 
                 if (result == DialogResult.Yes)
                 {
                     GuardarComo();
+                    DeleteAllFiles();
+                }
+                else if(result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }else if(result == DialogResult.No)
+                {
+                    DeleteAllFiles();
                 }
             }
-            DeleteAllFiles();
+            
         }
 
         private void mixToolStripMenuItem_Click(object sender, EventArgs e)
@@ -628,6 +639,16 @@ namespace TMI_Project
         private void hola1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Console.WriteLine("ASD");
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void asdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
