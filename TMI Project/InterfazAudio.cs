@@ -44,7 +44,7 @@ namespace TMI_Project
             // get the WaveIn class started
             WaveIn wi = new WaveIn
             {
-                DeviceNumber = 0,
+                DeviceNumber = 1,
                 WaveFormat = new WaveFormat(RATE, 1),
                 BufferMilliseconds = (int)((double)BUFFERSIZE / (double)RATE * 1000.0)
             };

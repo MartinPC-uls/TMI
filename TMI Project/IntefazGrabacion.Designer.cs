@@ -58,14 +58,17 @@ namespace TMI_Project
             this.españolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inglésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.improvisaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarDispositivoDeGrabaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.xDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hola1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hola2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialButton4 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton5 = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.cambiarDispositivoDeGrabaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audioTracksPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -351,6 +354,13 @@ namespace TMI_Project
             this.improvisaciónToolStripMenuItem.Text = "Improvisación";
             this.improvisaciónToolStripMenuItem.Click += new System.EventHandler(this.improvisaciónToolStripMenuItem_Click);
             // 
+            // cambiarDispositivoDeGrabaciónToolStripMenuItem
+            // 
+            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Name = "cambiarDispositivoDeGrabaciónToolStripMenuItem";
+            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
+            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Text = "Cambiar dispositivo de grabación";
+            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Click += new System.EventHandler(this.cambiarDispositivoDeGrabacionToolStripMenuItem_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -371,12 +381,35 @@ namespace TMI_Project
             this.asdToolStripMenuItem,
             this.asd2ToolStripMenuItem,
             this.asd3ToolStripMenuItem,
-            this.ayudaToolStripMenuItem});
+            this.ayudaToolStripMenuItem,
+            this.xDToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(3, 64);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1073, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1105, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // xDToolStripMenuItem
+            // 
+            this.xDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hola1ToolStripMenuItem,
+            this.hola2ToolStripMenuItem});
+            this.xDToolStripMenuItem.Name = "xDToolStripMenuItem";
+            this.xDToolStripMenuItem.Size = new System.Drawing.Size(34, 20);
+            this.xDToolStripMenuItem.Text = "XD";
+            // 
+            // hola1ToolStripMenuItem
+            // 
+            this.hola1ToolStripMenuItem.Name = "hola1ToolStripMenuItem";
+            this.hola1ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.hola1ToolStripMenuItem.Text = "hola1";
+            this.hola1ToolStripMenuItem.Click += new System.EventHandler(this.hola1ToolStripMenuItem_Click);
+            // 
+            // hola2ToolStripMenuItem
+            // 
+            this.hola2ToolStripMenuItem.Name = "hola2ToolStripMenuItem";
+            this.hola2ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.hola2ToolStripMenuItem.Text = "hola2";
             // 
             // materialButton4
             // 
@@ -437,18 +470,11 @@ namespace TMI_Project
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cambiarDispositivoDeGrabaciónToolStripMenuItem
-            // 
-            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Name = "cambiarDispositivoDeGrabaciónToolStripMenuItem";
-            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
-            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Text = "Cambiar dispositivo de grabación";
-            this.cambiarDispositivoDeGrabaciónToolStripMenuItem.Click += new System.EventHandler(this.cambiarDispositivoDeGrabacionToolStripMenuItem_Click);
-            // 
             // IntefazGrabacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 850);
+            this.ClientSize = new System.Drawing.Size(1111, 928);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.materialButton5);
             this.Controls.Add(this.materialButton4);
@@ -513,6 +539,9 @@ namespace TMI_Project
         private System.Windows.Forms.ToolStripMenuItem mixToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem cambiarDispositivoDeGrabaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xDToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hola1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hola2ToolStripMenuItem;
     }
 }
 

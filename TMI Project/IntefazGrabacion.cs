@@ -619,5 +619,15 @@ namespace TMI_Project
             int n = RecordAudio.waveInGetNumDevs();
             Console.WriteLine("Devices: " + n);
         }
+
+        private void materialButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hola1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("ASD");
+        }
     }
 }
