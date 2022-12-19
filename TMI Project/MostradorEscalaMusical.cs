@@ -69,6 +69,19 @@ namespace TMI_Project
                     if (scale.Contains(lblNotes[i, j].Text))
                     {
                         pbNotes[i, j].Visible = true;
+                        // if pbNotes[i, j] is the first note in the scale
+                        if (lblNotes[i, j].Text == scale[0])
+                        {
+                            pbNotes[i, j].BackColor = Color.Green;
+                        }
+                        if (lblNotes[i, j].Text == scale[2])
+                        {
+                            pbNotes[i, j].BackColor = Color.GreenYellow;
+                        }
+                        if (lblNotes[i, j].Text == scale[4])
+                        {
+                            pbNotes[i, j].BackColor = Color.Orange;
+                        }
                         lblNotes[i, j].Visible = true;
                     }
                 }
