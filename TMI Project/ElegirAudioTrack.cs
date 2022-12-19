@@ -38,6 +38,7 @@ namespace TMI_Project
         {
             string audioTrackSelected = audioTrackCB.GetItemText(audioTrackCB.SelectedItem);
             string instrumentoSelected = diagramaInstrumentoCB.GetItemText(diagramaInstrumentoCB.SelectedItem);
+
             int afinacionSelected = afinacionCB.SelectedIndex;
 
             /* 

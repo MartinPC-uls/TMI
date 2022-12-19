@@ -108,6 +108,11 @@ namespace TMI_Project.Analisis
             string musicalScaleName = NOTA + " " + MODO;
 
             //sg.MostrarEscalaMusical(musicalScale, Instrumento);
+            if (Instrumento == "Piano")
+            {
+                new Piano(musicalScale).ShowDialog();
+                return;
+            }
             new MostradorEscalaMusical(musicalScale, Afinacion, musicalScaleName).ShowDialog(); // TODO
         }
         /// <summary>

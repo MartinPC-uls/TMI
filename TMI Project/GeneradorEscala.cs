@@ -71,6 +71,16 @@ namespace TMI_Project
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/C/C-Locrian.png");
                 return;
             }
+            else if (escala.SequenceEqual(escalasMusicales.CHarmonicMinor))
+            {
+                nombreEscala.Text = "C Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/C/C-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.CHarmonicMajor))
+            {
+                nombreEscala.Text = "C Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/C/C-HarmonicMajor.png");
+            }
             else if (escala.SequenceEqual(escalasMusicales.C_Major))
             {
                 nombreEscala.Text = "C# Major";
@@ -112,6 +122,16 @@ namespace TMI_Project
                 nombreEscala.Text = "C# Locrian";
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/C#/Csharp-Locrian.png");
                 return;
+            }
+            else if (escala.SequenceEqual(escalasMusicales.C_HarmonicMinor))
+            {
+                nombreEscala.Text = "C# Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/C#/Csharp-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.C_HarmonicMajor))
+            {
+                nombreEscala.Text = "C# Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/C#/Csharp-HarmonicMajor.png");
             }
             else if (escala.SequenceEqual(escalasMusicales.DMajor))
             {
@@ -155,6 +175,16 @@ namespace TMI_Project
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/D/D-Locrian.png");
                 return;
             }
+            else if (escala.SequenceEqual(escalasMusicales.DHarmonicMinor))
+            {
+                nombreEscala.Text = "D Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/D/D-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.DHarmonicMajor))
+            {
+                nombreEscala.Text = "D Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/D/D-HarmonicMajor.png");
+            }
             else if (escala.SequenceEqual(escalasMusicales.D_Major))
             {
                 nombreEscala.Text = "D# Major";
@@ -196,6 +226,16 @@ namespace TMI_Project
                 nombreEscala.Text = "D# Locrian";
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/D#/Dsharp-Locrian.png");
                 return;
+            }
+            else if (escala.SequenceEqual(escalasMusicales.D_HarmonicMinor))
+            {
+                nombreEscala.Text = "D# Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/D#/Dsharp-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.D_HarmonicMajor))
+            {
+                nombreEscala.Text = "D# Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/D#/Dsharp-HarmonicMajor.png");
             }
             else if (escala.SequenceEqual(escalasMusicales.EMajor))
             {
@@ -239,6 +279,16 @@ namespace TMI_Project
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/E/E-Locrian.png");
                 return;
             }
+            else if (escala.SequenceEqual(escalasMusicales.EHarmonicMinor))
+            {
+                nombreEscala.Text = "E Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/E/E-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.EHarmonicMajor))
+            {
+                nombreEscala.Text = "E Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/E/E-HarmonicMajor.png");
+            }
             else if (escala.SequenceEqual(escalasMusicales.FMajor))
             {
                 nombreEscala.Text = "F Major";
@@ -280,6 +330,16 @@ namespace TMI_Project
                 nombreEscala.Text = "F Locrian";
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/F/F-Locrian.png");
                 return;
+            }
+            else if (escala.SequenceEqual(escalasMusicales.FHarmonicMinor))
+            {
+                nombreEscala.Text = "F Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/F/F-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.FHarmonicMajor))
+            {
+                nombreEscala.Text = "F Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/F/F-HarmonicMajor.png");
             }
             else if (escala.SequenceEqual(escalasMusicales.F_Major))
             {
@@ -323,6 +383,16 @@ namespace TMI_Project
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/F#/Fsharp-Locrian.png");
                 return;
             }
+            else if (escala.SequenceEqual(escalasMusicales.F_HarmonicMinor))
+            {
+                nombreEscala.Text = "F# Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/F#/Fsharp-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.F_HarmonicMajor))
+            {
+                nombreEscala.Text = "F# Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/F#/Fsharp-HarmonicMajor.png");
+            }
             else if (escala.SequenceEqual(escalasMusicales.GMajor))
             {
                 nombreEscala.Text = "G Major";
@@ -364,6 +434,16 @@ namespace TMI_Project
                 nombreEscala.Text = "G Locrian";
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/G/G-Locrian.png");
                 return;
+            }
+            else if (escala.SequenceEqual(escalasMusicales.GHarmonicMinor))
+            {
+                nombreEscala.Text = "G Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/G/G-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.GHarmonicMajor))
+            {
+                nombreEscala.Text = "G Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/G/G-HarmonicMajor.png");
             }
             else if (escala.SequenceEqual(escalasMusicales.G_Major))
             {
@@ -407,6 +487,16 @@ namespace TMI_Project
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/G#/Gsharp-Locrian.png");
                 return;
             }
+            else if (escala.SequenceEqual(escalasMusicales.G_HarmonicMinor))
+            {
+                nombreEscala.Text = "G# Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/G#/Gsharp-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.G_HarmonicMajor))
+            {
+                nombreEscala.Text = "G# Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/G#/Gsharp-HarmonicMajor.png");
+            }
             else if (escala.SequenceEqual(escalasMusicales.AMajor))
             {
                 nombreEscala.Text = "A Major";
@@ -448,6 +538,16 @@ namespace TMI_Project
                 nombreEscala.Text = "A Locrian";
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/A/A-Locrian.png");
                 return;
+            }
+            else if (escala.SequenceEqual(escalasMusicales.AHarmonicMinor))
+            {
+                nombreEscala.Text = "A Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/A/A-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.AHarmonicMajor))
+            {
+                nombreEscala.Text = "A Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/A/A-HarmonicMajor.png");
             }
             else if (escala.SequenceEqual(escalasMusicales.A_Major))
             {
@@ -491,6 +591,16 @@ namespace TMI_Project
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/A#/Asharp-Locrian.png");
                 return;
             }
+            else if (escala.SequenceEqual(escalasMusicales.A_HarmonicMinor))
+            {
+                nombreEscala.Text = "A# Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/A#/Asharp-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.A_HarmonicMajor))
+            {
+                nombreEscala.Text = "A# Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/A#/Asharp-HarmonicMajor.png");
+            }
             else if (escala.SequenceEqual(escalasMusicales.BMajor))
             {
                 nombreEscala.Text = "B Major";
@@ -532,7 +642,19 @@ namespace TMI_Project
                 nombreEscala.Text = "B Locrian";
                 pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/B/B-Locrian.png");
                 return;
-            } else {
+            }
+            else if (escala.SequenceEqual(escalasMusicales.BHarmonicMinor))
+            {
+                nombreEscala.Text = "B Harmonic Minor";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/B/B-HarmonicMinor.png");
+            }
+            else if (escala.SequenceEqual(escalasMusicales.BHarmonicMajor))
+            {
+                nombreEscala.Text = "B Harmonic Major";
+                pictureBox.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "/" + instrumento + "/B/B-HarmonicMajor.png");
+            }
+            else
+            {
                 Console.WriteLine("Escala musical no encontrada");
             }
         }
