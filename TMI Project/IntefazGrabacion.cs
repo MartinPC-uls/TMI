@@ -10,6 +10,11 @@ using System.Media;
 using WMPLib;
 using System.Collections.Generic;
 using Microsoft.VisualBasic.FileIO;
+using System.Runtime.InteropServices;
+//using AudioSwitcher.AudioApi;
+using AudioSwitcher.AudioApi;
+using AudioSwitcher.AudioApi.CoreAudio;
+using System.Diagnostics;
 
 namespace TMI_Project
 {
@@ -27,14 +32,33 @@ namespace TMI_Project
         private static bool RequiresSaving = false;
         private static bool IsExternalProject = false;
         private static string FileNameOpened = "";
+        private List<GroupBox> _groupBoxes;
+        private CoreAudioController _coreAudioController;
+        private CoreAudioDevice _coreAudioDevice;
 
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
+
+        [DllImport("winmm.dll")]
+        public static extern int waveInMessage(IntPtr hWaveIn, int uMessage, IntPtr dwParam1, IntPtr dwParam2);
 
         /// <summary>
         /// Constructor de la clase InterfazGrabacion
         /// </summary>
         public IntefazGrabacion()
         {
+            _coreAudioController = new CoreAudioController();
+            _groupBoxes = new List<GroupBox>();
+
+            string folderPath = AppDomain.CurrentDomain.BaseDirectory + "Project";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+                FileAttributes attributes = File.GetAttributes(folderPath);
+                if (!((attributes & FileAttributes.Hidden) == FileAttributes.Hidden))
+                {
+                    File.SetAttributes(folderPath, attributes | FileAttributes.Hidden);
+                }
+            }
             InitializeComponent();
 
             RecordingAudioTrack = false;
@@ -47,6 +71,8 @@ namespace TMI_Project
 
             textBox1.Visible = false;
             groupBox1.Visible = false;
+
+            listAllRecordingDevices();
         }
 
         private void CreateAudioTrackBox(AudioTrack audioTrack, bool autoRecord = false, bool autoPlay = false)
@@ -308,6 +334,8 @@ namespace TMI_Project
             groupBox.Controls.Add(btnReproducir);
 
             audioTracksPanel.Controls.Add(groupBox);
+
+            _groupBoxes.Add(groupBox);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -622,13 +650,72 @@ namespace TMI_Project
 
         private void asdToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (RequiresSaving)
+            {
+                const string message = "Antes de iniciar un nuevo proyecto, ¿desea guardar los cambios realizados?";
+                const string caption = "Guardar";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNoCancel,
+                                             MessageBoxIcon.Question);
 
+
+
+                if (result == DialogResult.Yes)
+                {
+                    GuardarComo();
+                    ResetProject();
+                } else if (result == DialogResult.No)
+                {
+                    ResetProject();
+                }
+            }
+        }
+
+        private void ResetProject()
+        {
+            DeleteAllFiles();
+            _AudioTracks = new List<AudioTrack>();
+            __AudioTracks = new List<AudioTrack>();
+            foreach (var groupBox in _groupBoxes)
+            {
+                groupBox.Dispose();
+            }
+            _groupBoxes = new List<GroupBox>();
+            new IntefazGrabacion();
         }
 
         private void cambiarDispositivoDeGrabacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int n = RecordAudio.waveInGetNumDevs();
             Console.WriteLine("Devices: " + n);
+
+            
+        }
+
+        private void listAllRecordingDevices()
+        {
+            IEnumerable<CoreAudioDevice> recordingDevices = _coreAudioController.GetDevices(DeviceType.Capture, DeviceState.Active);
+
+            foreach (CoreAudioDevice device in recordingDevices)
+            {
+                _coreAudioDevice = device;
+                ToolStripMenuItem item = new ToolStripMenuItem(device.FullName);
+                // write a function that says hello world when click
+                item.Click += (sender, e) => {
+                    ChangeRecordingDevice(device);
+                    foreach (ToolStripMenuItem child in cambiarDispositivoDeGrabaciónToolStripMenuItem.DropDownItems)
+                    {
+                        child.Checked = false;
+                    }
+                    item.Checked = true;
+                };
+                cambiarDispositivoDeGrabaciónToolStripMenuItem.DropDownItems.Add(item);
+            }
+        }
+
+        private void ChangeRecordingDevice(CoreAudioDevice device)
+        {
+            device.SetAsDefault();
         }
 
         private void materialButton6_Click(object sender, EventArgs e)
@@ -649,6 +736,13 @@ namespace TMI_Project
         private void asdToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void manualDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open manual.pdf
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/manual.pdf";
+            Process.Start(path);
         }
     }
 }

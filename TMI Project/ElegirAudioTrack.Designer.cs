@@ -143,7 +143,7 @@
             this.Controls.Add(this.audioTrackCB);
             this.Controls.Add(this.btnDeterminarEscala);
             this.Name = "ElegirAudioTrack";
-            this.Text = "ElegirAudioTrack";
+            this.Text = "Elegir Pista de Audio";
             this.ResumeLayout(false);
             this.PerformLayout();
 

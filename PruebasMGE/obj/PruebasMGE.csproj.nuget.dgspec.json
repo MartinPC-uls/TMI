@@ -1,35 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Source\\Repos\\TMI\\PruebasMGE\\PruebasMGE.csproj": {}
+    "C:\\Users\\ghanv\\source\\repos\\TMI Project\\PruebasMGE\\PruebasMGE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Source\\Repos\\TMI\\PruebasMGE\\PruebasMGE.csproj": {
+    "C:\\Users\\ghanv\\source\\repos\\TMI Project\\PruebasMGE\\PruebasMGE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\TMI\\PruebasMGE\\PruebasMGE.csproj",
+        "projectUniqueName": "C:\\Users\\ghanv\\source\\repos\\TMI Project\\PruebasMGE\\PruebasMGE.csproj",
         "projectName": "PruebasMGE",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\TMI\\PruebasMGE\\PruebasMGE.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Source\\Repos\\TMI\\PruebasMGE\\obj\\",
+        "projectPath": "C:\\Users\\ghanv\\source\\repos\\TMI Project\\PruebasMGE\\PruebasMGE.csproj",
+        "packagesPath": "C:\\Users\\ghanv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ghanv\\source\\repos\\TMI Project\\PruebasMGE\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ghanv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\PC\\Source\\Repos\\TMI\\TMI Project\\TMI Project.csproj": {
-                "projectPath": "C:\\Users\\PC\\Source\\Repos\\TMI\\TMI Project\\TMI Project.csproj"
+              "C:\\Users\\ghanv\\source\\repos\\TMI Project\\TMI Project\\TMI Project.csproj": {
+                "projectPath": "C:\\Users\\ghanv\\source\\repos\\TMI Project\\TMI Project\\TMI Project.csproj"
               }
             }
           }
@@ -80,15 +83,15 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PC\\Source\\Repos\\TMI\\TMI Project\\TMI Project.csproj": {
+    "C:\\Users\\ghanv\\source\\repos\\TMI Project\\TMI Project\\TMI Project.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Source\\Repos\\TMI\\TMI Project\\TMI Project.csproj",
+        "projectUniqueName": "C:\\Users\\ghanv\\source\\repos\\TMI Project\\TMI Project\\TMI Project.csproj",
         "projectName": "TMI Project",
-        "projectPath": "C:\\Users\\PC\\Source\\Repos\\TMI\\TMI Project\\TMI Project.csproj",
+        "projectPath": "C:\\Users\\ghanv\\source\\repos\\TMI Project\\TMI Project\\TMI Project.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}

@@ -20,7 +20,7 @@ namespace TMI_Project
         private static string[] SixthString;
 
         private static readonly int FRET_COUNT = 13; // We're considering the guitar from fret 0 to 12.
-        public MostradorEscalaMusical(string[] scale, string[] tuning)
+        public MostradorEscalaMusical(string[] scale, string[] tuning, string scaleName)
         {
             FirstString = new string[FRET_COUNT];
             SecondString = new string[FRET_COUNT];
@@ -31,6 +31,8 @@ namespace TMI_Project
             InitializeComponent();
             SetTuning(tuning);
             SetMusicalScale(scale);
+
+            lblNombreEscala.Text = scaleName;
         }
         public void SetTuning(string[] tuning)
         {

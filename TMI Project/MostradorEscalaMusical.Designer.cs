@@ -36,6 +36,27 @@ namespace TMI_Project
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblNombreEscala = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblNombreEscala
+            // 
+            this.lblNombreEscala.AutoSize = true;
+            this.lblNombreEscala.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreEscala.Location = new System.Drawing.Point(81, 20);
+            this.lblNombreEscala.Name = "lblNombreEscala";
+            this.lblNombreEscala.Size = new System.Drawing.Size(532, 73);
+            this.lblNombreEscala.TabIndex = 0;
+            this.lblNombreEscala.Text = "lblNombreEscala";
+            // 
+            // MostradorEscalaMusical
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.lblNombreEscala);
+            this.Name = "MostradorEscalaMusical";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 
@@ -1725,9 +1746,11 @@ namespace TMI_Project
             ((System.ComponentModel.ISupportInitialize)(this.pbNotes[5, 12])).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
-        
+
+        private Label lblNombreEscala;
     }
 }

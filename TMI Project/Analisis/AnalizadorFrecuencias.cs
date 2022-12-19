@@ -15,7 +15,10 @@ namespace TMI_Project.Analisis
         private string[] Afinacion;
         private string Instrumento;
         private AnalizadorMusical am;
-        
+
+        public static string NOTA = "";
+        public static string MODO = "";
+
         /// <summary>
         /// Constructor de la clase AnalizadorFrecuencias
         /// </summary>
@@ -102,9 +105,10 @@ namespace TMI_Project.Analisis
             string notaDominante = am.GetDominantNote();
 
             string[] musicalScale = CalcularEscala(notaDominante, am);
+            string musicalScaleName = NOTA + " " + MODO;
 
             //sg.MostrarEscalaMusical(musicalScale, Instrumento);
-            new MostradorEscalaMusical(musicalScale, Afinacion).ShowDialog(); // TODO
+            new MostradorEscalaMusical(musicalScale, Afinacion, musicalScaleName).ShowDialog(); // TODO
         }
         /// <summary>
         /// Calcula la escala musical para determinar cuál es la más adecuada.
@@ -117,7 +121,7 @@ namespace TMI_Project.Analisis
         {
             EscalasMusicales em = new EscalasMusicales();
             List<string[]> escala;
-            double[] pesos = new double[7];
+            double[] pesos = new double[9];
             double peso_major = 0;
             double peso_minor = 0;
             double peso_dorian = 0;
@@ -126,12 +130,16 @@ namespace TMI_Project.Analisis
             double peso_mixolydian = 0;
             double peso_locrian = 0;
 
+            double peso_harmonicminor = 0;
+            double peso_harmonicmajor = 0;
+
             double pesoNota;
 
             switch (notaDominante)
             {
                 case "C":
                     escala = em.Cescalas;
+                    NOTA = "C";
                     foreach (string[] _escala in escala)
                     {
                         for (int i = 0; i < _escala.Length; i++)
@@ -151,11 +159,16 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.CLocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.CHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.CHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "C#":
                     escala = em.C_escalas;
+                    NOTA = "C#";
                     foreach (string[] _escala in escala)
                     {
                         for (int i = 0; i < _escala.Length; i++)
@@ -175,11 +188,16 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.C_Locrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.C_HarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.C_HarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "D":
                     escala = em.Descalas;
+                    NOTA = "D";
                     foreach (string[] _escala in escala)
                     {
                         for (int i = 0; i < _escala.Length; i++)
@@ -199,10 +217,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.DLocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.DHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.DHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "D#":
+                    NOTA = "D#";
                     escala = em.D_escalas;
                     foreach (string[] _escala in escala)
                     {
@@ -223,10 +246,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.D_Locrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.D_HarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.D_HarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "E":
+                    NOTA = "E";
                     escala = em.Eescalas;
                     foreach (string[] _escala in escala)
                     {
@@ -247,10 +275,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.ELocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.EHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.EHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "F":
+                    NOTA = "F";
                     escala = em.Fescalas;
                     foreach (string[] _escala in escala)
                     {
@@ -271,10 +304,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.FLocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.FHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.FHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "F#":
+                    NOTA = "F#";
                     escala = em.F_escalas;
                     foreach (string[] _escala in escala)
                     {
@@ -295,10 +333,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.F_Locrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.F_HarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.F_HarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "G":
+                    NOTA = "G";
                     escala = em.Gescalas;
                     foreach (string[] _escala in escala)
                     {
@@ -319,10 +362,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.GLocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.GHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.GHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "G#":
+                    NOTA = "G#";
                     escala = em.G_escalas;
                     foreach (string[] _escala in escala)
                     {
@@ -343,10 +391,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.G_Locrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.G_HarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.G_HarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "A":
+                    NOTA = "A";
                     escala = em.Aescalas;
                     foreach (string[] _escala in escala)
                     {
@@ -367,10 +420,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.ALocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.AHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.AHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "A#":
+                    NOTA = "A#";
                     escala = em.A_escalas;
                     foreach (string[] _escala in escala)
                     {
@@ -391,10 +449,15 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.A_Locrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.A_HarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.A_HarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
                 case "B":
+                    NOTA = "B";
                     escala = em.Bescalas;
                     foreach (string[] _escala in escala)
                     {
@@ -415,6 +478,10 @@ namespace TMI_Project.Analisis
                                 peso_mixolydian += pesoNota;
                             else if (_escala == em.BLocrian)
                                 peso_locrian += pesoNota;
+                            else if (_escala == em.BHarmonicMinor)
+                                peso_harmonicminor += pesoNota;
+                            else if (_escala == em.BHarmonicMajor)
+                                peso_harmonicmajor += pesoNota;
                         }
                     }
                     break;
@@ -427,6 +494,10 @@ namespace TMI_Project.Analisis
             pesos[5] = peso_mixolydian;
             pesos[6] = peso_locrian;
 
+            pesos[7] = peso_harmonicminor;
+            pesos[8] = peso_harmonicmajor;
+
+
             double aux = pesos[0];
             int point = 0;
             for (int i = 1; i < pesos.Length; i++)
@@ -435,6 +506,17 @@ namespace TMI_Project.Analisis
                 {
                     aux = pesos[i];
                     point = i;
+                }
+            }
+            // get the second best peso
+            double aux2 = 0;
+            int point2 = 0;
+            for (int i = 0; i < pesos.Length; i++)
+            {
+                if (pesos[i] > aux2 && pesos[i] < aux)
+                {
+                    aux2 = pesos[i];
+                    point2 = i;
                 }
             }
 
@@ -457,10 +539,35 @@ namespace TMI_Project.Analisis
                 modo = "Mixolydian";
             else if (point == 6)
                 modo = "Locrian";
+            else if (point == 7)
+                modo = "HarmonicMinor";
+            else if (point == 8)
+                modo = "HarmonicMajor";
 
+            string modo2 = null;
+            if (point2 == 0)
+                modo2 = "Major";
+            else if (point2 == 1)
+                modo2 = "Minor";
+            else if (point2 == 2)
+                modo2 = "Dorian";
+            else if (point2 == 3)
+                modo2 = "Phrygian";
+            else if (point2 == 4)
+                modo2 = "Lydian";
+            else if (point2 == 5)
+                modo2 = "Mixolydian";
+            else if (point2 == 6)
+                modo2 = "Locrian";
+            else if (point2 == 7)
+                modo2 = "HarmonicMinor";
+            else if (point2 == 8)
+                modo2 = "HarmonicMajor";
+
+            Console.WriteLine("First best scale: " + notaDominante + " " + modo);
+
+            MODO = modo;
             return em.GetEscalaMusical(notaDominante, modo);
-
-
         }
 
         /// <summary>

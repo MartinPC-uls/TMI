@@ -111,3 +111,5 @@ C:\Users\ghanv\source\repos\TMI Project\PruebasMGE\obj\Release\net6.0\refint\Pru
 C:\Users\ghanv\source\repos\TMI Project\PruebasMGE\obj\Release\net6.0\PruebasMGE.pdb
 C:\Users\ghanv\source\repos\TMI Project\PruebasMGE\obj\Release\net6.0\PruebasMGE.genruntimeconfig.cache
 C:\Users\ghanv\source\repos\TMI Project\PruebasMGE\obj\Release\net6.0\ref\PruebasMGE.dll
+C:\Users\ghanv\source\repos\TMI Project\PruebasMGE\bin\Release\net6.0\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\ghanv\source\repos\TMI Project\PruebasMGE\bin\Release\net6.0\AudioSwitcher.AudioApi.dll

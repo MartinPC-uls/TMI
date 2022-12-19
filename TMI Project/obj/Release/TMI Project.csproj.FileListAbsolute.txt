@@ -98,3 +98,5 @@ C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.CoreComp
 C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.csproj.CopyComplete
 C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.exe
 C:\Users\PC\Source\Repos\TMI\TMI Project\obj\Release\TMI Project.pdb
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\ghanv\source\repos\TMI Project\TMI Project\bin\Release\AudioSwitcher.AudioApi.dll
